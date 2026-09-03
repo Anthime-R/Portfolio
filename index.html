@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthime Roux — Freelance Unity Developer &amp; Technical Artist</title>
+<meta name="description" content="Freelance Unity developer specializing in VR/XR, production tooling and technical art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-base:#14171c;
+    --bg-panel:#1b1f26;
+    --bg-panel-hover:#20252d;
+    --line:#2a3038;
+    --ink:#e9ebee;
+    --muted:#8b93a1;
+    --muted-dim:#5b6270;
+    --wire:#26cead;
+    --warm:#5b52e0;
+    --warm-dim:#241f47;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-base);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  ::selection{background:var(--warm); color:#ffffff;}
+
+  :focus-visible{
+    outline:2px solid var(--wire);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,23,28,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-logo{
+    font-family:var(--mono); font-size:14px; letter-spacing:0.02em;
+    color:var(--ink); text-decoration:none;
+  }
+  .nav-logo span{color:var(--wire);}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--muted); text-decoration:none; transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.05em;
+    color:var(--bg-base); background:var(--wire);
+    padding:8px 14px; border-radius:3px; text-decoration:none;
+    white-space:nowrap;
+  }
+  .nav-mobile-links{display:none;}
+  @media (max-width:720px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:84px 0 76px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    transform:perspective(600px) rotateX(58deg) scale(2.2);
+    transform-origin:bottom center;
+    opacity:0.35;
+    mask-image:linear-gradient(to bottom, transparent, black 15%, black 55%, transparent 95%);
+    -webkit-mask-image:linear-gradient(to bottom, transparent, black 15%, black 55%, transparent 95%);
+  }
+  .hero-glow{
+    position:absolute; left:50%; top:-220px; width:1100px; height:600px;
+    transform:translateX(-50%);
+    background:linear-gradient(115deg, #078d70 0%, #26cead 26%, #98e8c1 46%, #7bade2 62%, #5049cc 82%, #3d1a78 100%);
+    filter:blur(120px);
+    opacity:0.22;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .hud-row{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted-dim);
+    margin-bottom:64px;
+  }
+  .hud-row .dot{
+    display:inline-block; width:6px; height:6px; border-radius:50%;
+    background:var(--wire); margin-right:8px;
+    box-shadow:0 0 8px var(--wire);
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--wire); margin-bottom:18px;
+  }
+  h1{
+    font-family:var(--display); font-weight:600;
+    font-size:clamp(34px, 5.4vw, 62px);
+    line-height:1.06; letter-spacing:-0.01em;
+    margin:0 0 22px;
+    max-width:820px;
+  }
+  h1 em{
+    font-style:normal; color:var(--warm);
+  }
+  .hero-sub{
+    font-size:18px; color:var(--muted); max-width:560px; margin:0 0 36px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.03em;
+    padding:13px 22px; border-radius:3px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{
+    background:var(--warm); color:#ffffff; font-weight:500;
+  }
+  .btn-primary:hover{transform:translateY(-1px); background:#726ae8;}
+  .btn-ghost{
+    background:transparent; color:var(--ink); border:1px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--wire); color:var(--wire);}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:44px;
+    border-bottom:1px solid var(--line); padding-bottom:20px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:12px; color:var(--muted-dim);
+  }
+  .section-head h2{
+    font-family:var(--display); font-size:28px; font-weight:600; margin:0;
+  }
+  .section-tag{
+    margin-left:auto; font-family:var(--mono); font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--muted-dim);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:22px;
+  }
+  @media (max-width:800px){ .project-grid{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--wire); transform:translateY(-2px);}
+  .card-media{
+    aspect-ratio:16/9; width:100%; background:#0f1216;
+    position:relative; overflow:hidden; cursor:pointer; border:0; padding:0;
+    display:block;
+  }
+  .card-media img{width:100%; height:100%; object-fit:cover; display:block;}
+  .card-media .play{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(to top, rgba(0,0,0,0.55), transparent 40%);
+    opacity:0; transition:opacity .15s ease;
+  }
+  .card-media:hover .play{opacity:1;}
+  .play-icon{
+    width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.92);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .play-icon svg{width:16px; height:16px; margin-left:2px;}
+  .card-media.placeholder{
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;
+    background:
+      repeating-linear-gradient(45deg, #1a1e24, #1a1e24 10px, #171a20 10px, #171a20 20px);
+    color:var(--muted-dim); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .card-body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card-title{
+    font-family:var(--display); font-size:19px; font-weight:600; margin:0;
+  }
+  .card-desc{color:var(--muted); font-size:14.5px; margin:0; flex:1;}
+  .tag-row{
+    display:flex; flex-wrap:wrap; gap:8px 14px; margin-top:4px;
+    font-family:var(--mono); font-size:11px; color:var(--muted-dim); text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .tag-row b{color:var(--wire); font-weight:500;}
+
+  .more-row{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:22px;
+  }
+  .more-row-4{ grid-template-columns:repeat(4, 1fr); }
+  @media (max-width:800px){ .more-row{grid-template-columns:1fr;} }
+  @media (min-width:801px) and (max-width:980px){ .more-row-4{grid-template-columns:repeat(2, 1fr);} }
+  .more-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    max-width:300px; width:100%; margin:0 auto;
+  }
+  .more-card .card-media{aspect-ratio:4/3;}
+  .more-card .card-body{padding:14px 16px;}
+  .more-card .card-title{font-size:14px;}
+  .more-card .card-desc{font-size:12.5px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  @media (max-width:820px){ .skills-grid{grid-template-columns:repeat(2, 1fr);} }
+  .skill-col{background:var(--bg-panel); padding:24px 22px;}
+  .skill-col h3{
+    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--warm); margin:0 0 14px;
+  }
+  .skill-col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .skill-col li{font-size:14px; color:var(--ink);}
+  .skill-col li span{display:block; font-size:12px; color:var(--muted-dim); margin-top:1px;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{border-top:1px solid var(--line);}
+  .t-row{
+    display:grid; grid-template-columns:150px 1fr; gap:24px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:640px){ .t-row{grid-template-columns:1fr; gap:6px;} }
+  .t-date{font-family:var(--mono); font-size:12px; color:var(--wire); white-space:nowrap;}
+  .t-role{font-family:var(--display); font-size:17px; font-weight:600; margin:0 0 4px;}
+  .t-org{color:var(--muted); font-size:14px; margin:0;}
+
+  .timeline-foot{margin-top:26px;}
+  .link-arrow{
+    font-family:var(--mono); font-size:13px; color:var(--wire); text-decoration:none;
+    display:inline-block; padding:8px 0;
+  }
+  .link-arrow:hover{text-decoration:underline;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-section{
+    border-top:1px solid var(--line);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(38,206,173,0.08), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(91,82,224,0.10), transparent 45%);
+  }
+  .contact-inner{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;
+  }
+  .contact-inner h2{
+    font-family:var(--display); font-size:clamp(30px, 4.6vw, 46px); font-weight:600; margin:0 0 14px; max-width:520px;
+  }
+  .contact-inner p{color:var(--muted); max-width:440px; margin:0 0 26px;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; align-items:flex-end;}
+  .contact-links a{font-family:var(--mono); font-size:14px; text-decoration:none; color:var(--ink); display:inline-block; padding:6px 0;}
+  .contact-links a:hover{color:var(--wire);}
+  .contact-links .loc{color:var(--muted-dim); font-size:12px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:24px 0;
+    font-family:var(--mono); font-size:11px; color:var(--muted-dim);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- MODAL ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(10,12,15,0.86);
+    display:none; align-items:center; justify-content:center; z-index:100; padding:24px;
+  }
+  .modal-backdrop.open{display:flex;}
+  .modal-box{
+    width:100%; max-width:880px; background:var(--bg-panel); border:1px solid var(--line);
+    border-radius:8px; overflow:hidden;
+  }
+  .modal-media{aspect-ratio:16/9; width:100%; background:#000;}
+  .modal-media iframe, .modal-media img{width:100%; height:100%; border:0; object-fit:cover;}
+  .modal-close{
+    display:block; margin-left:auto; background:none; border:0; color:var(--muted);
+    font-family:var(--mono); font-size:12px; padding:14px 18px; cursor:pointer;
+  }
+  .modal-close:hover{color:var(--ink);}
+
+  /* ---------- DETAIL (technical breakdown) MODAL ---------- */
+  .modal-box.text-mode .modal-media{
+    aspect-ratio:auto; max-height:72vh; overflow-y:auto; background:var(--bg-panel);
+    padding:4px 30px 30px;
+  }
+  .modal-box.wide-mode .modal-media{
+    aspect-ratio:auto; background:#000;
+  }
+  .modal-box.wide-mode .modal-media img{
+    width:100%; height:auto; display:block;
+  }
+  .detail-link{
+    font-family:var(--mono); font-size:12.5px; color:var(--wire); text-decoration:none;
+    display:inline-block; margin-top:2px; padding:8px 0;
+  }
+  .detail-link:hover{text-decoration:underline;}
+  .detail-block{margin-bottom:26px;}
+  .detail-block:last-child{margin-bottom:0;}
+  .detail-block h4{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--warm); margin:0 0 6px;
+  }
+  .detail-block .detail-sub{color:var(--muted); font-size:13.5px; margin:0 0 14px;}
+  .detail-block ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;}
+  .detail-block li{font-size:14px; color:var(--ink); line-height:1.5;}
+  .detail-block code{
+    font-family:var(--mono); font-size:12.5px; color:var(--wire);
+    background:rgba(38,206,173,0.08); padding:1px 5px; border-radius:3px;
+  }
+  .detail-title{
+    font-family:var(--display); font-size:20px; font-weight:600; margin:0 0 18px;
+    position:sticky; top:0; background:var(--bg-panel); padding-top:4px;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo">A<span>·</span>ROUX</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Toolset</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:anthime.roux@hotmail.fr">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Freelance · Unity · C# · Technical Art</div>
+      <h1>I build the tools and worlds<br>behind <em>interactive experiences.</em></h1>
+      <p class="hero-sub">Unity developer &amp; technical artist specializing in VR/XR, production tooling and shader work. Open to freelance missions — game dev, technical art, or VR/XR — in France and Germany (Frankfurt area). Short missions welcome.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#work">View the work</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>Selected work</h2>
+        <span class="section-tag">Professional &amp; client work</span>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="card">
+          <button class="card-media placeholder" data-video="" data-img="" aria-label="Mimosa — confidential client project, no screenshot available">
+            <span>[ confidential client project ]</span>
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Mimosa</h3>
+            <p class="card-desc">A standalone macOS application built for <b style="color:var(--ink)">Galerie Perrotin</b> — one of the leading international contemporary art galleries — generating 3D simulations of gallery spaces for exhibitions and art fairs. Ongoing freelance engagement, maintaining and extending the tool. Screenshots are limited here due to client confidentiality.</p>
+            <div class="tag-row"><b>Client</b> Galerie Perrotin <b>Engine</b> Unity <b>Role</b> Solo dev <b>Year</b> 2025–</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <button class="card-media" data-video="https://www.youtube.com/embed/cJMK9T7eGHE" data-img="" aria-label="Play Maison virtuelle de l'adolescent video">
+            <img src="assets/maison-virtuelle.jpg" alt="Maison virtuelle de l'adolescent screenshot" loading="lazy">
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Maison virtuelle de l'adolescent</h3>
+            <p class="card-desc">A therapeutic, Habbo-inspired virtual space built for a cognitive-science research lab, with its own dedicated multiplayer architecture (Netcode for GameObjects), PlayFab backend and spatialized Vivox voice chat.</p>
+            <div class="tag-row"><b>Lab</b> LMC2 <b>Engine</b> Unity <b>Role</b> Unity dev <b>Year</b> 2024–</div>
+            <a class="detail-link" href="#" data-detail="detail-vth">→ Technical breakdown</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <button class="card-media" data-video="" data-img="assets/vr-suite.jpg" data-wide aria-label="View VR Suite image">
+            <img src="assets/vr-suite.jpg" alt="VR Suite — hand interaction system and OpenXR device picker tool" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">VR Suite — LMC2</h3>
+            <p class="card-desc">An in-house VR package built to give the lab a generic, reusable solution rather than one-off builds — configurable editor tooling and a modular runtime, adapted to the needs of different experimental protocols.</p>
+            <div class="tag-row"><b>Lab</b> LMC2 <b>Engine</b> Unity <b>Role</b> Tools &amp; runtime architecture <b>Year</b> 2025–</div>
+            <a class="detail-link" href="#" data-detail="detail-lmc2">→ Technical breakdown</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <button class="card-media" data-video="" data-img="assets/expressioncc4.jpg" data-wide aria-label="View ExpressionCC4 image">
+            <img src="assets/expressioncc4.jpg" alt="ExpressionCC4 — four facial expressions on a CC4 avatar" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">ExpressionCC4</h3>
+            <p class="card-desc">A facial expression and lip-sync toolkit for CC4 avatars — capture and reuse blend-shape expressions, transition smoothly between them at runtime, and auto-rig lip sync from a single editor window.</p>
+            <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Tools &amp; Technical Art (solo) <b>Year</b> 2025–</div>
+            <a class="detail-link" href="#" data-detail="detail-expressioncc4">→ Technical breakdown</a>
+          </div>
+        </article>
+
+        <article class="card">
+
+          <button class="card-media" data-video="" data-img="assets/blast.jpg" aria-label="View Blast gameplay screenshot">
+            <img src="assets/blast.jpg" alt="Blast gameplay screenshot — arena, enemies and HUD" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Blast</h3>
+            <p class="card-desc">A mobile twin-stick shooter built solo, focused on a scalable architecture: custom object pooling, ScriptableObject-driven data and events, and a procedural mesh generator that builds the arena walls at runtime.</p>
+            <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Solo dev (code + shaders) <b>Year</b> 2024</div>
+            <a class="detail-link" href="#" data-detail="detail-blast">→ Technical breakdown</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <button class="card-media" data-video="" data-img="assets/hazel.jpg" aria-label="View Hazel image">
+            <img src="assets/hazel.jpg" alt="Hazel screenshot" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Hazel</h3>
+            <p class="card-desc">An ongoing 2D physics-based platformer, built with two other members of the Rewind team. Project lead, in charge of planning — twin-stick object manipulation, a vacuum-based inventory system, and multi-phase boss fights.</p>
+            <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Project lead, planning (team of 3) <b>Year</b> Ongoing</div>
+            <a class="detail-link" href="#" data-detail="detail-hazel">→ Technical breakdown</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section-head" style="margin-top:56px;">
+        <span class="section-num">02</span>
+        <h2>Student projects</h2>
+        <span class="section-tag">Rubika · LISAA · self-directed</span>
+      </div>
+
+      <div class="more-row more-row-4">
+        <div class="more-card">
+          <button class="card-media" data-video="" data-img="assets/rewind.jpg" aria-label="View Rewind image">
+            <img src="assets/rewind.jpg" alt="Rewind banner" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Rewind</h3>
+            <p class="card-desc">2.5D platformer/puzzle built around a time-rewind mechanic. Project lead for a 4-person team; programmed core gameplay, produced character &amp; environment art.</p>
+            <div class="tag-row"><b>School</b> LISAA <b>Year</b> 2019–20</div>
+            <a class="detail-link" href="https://squirrel-eating-cardboard.itch.io/rewind" target="_blank" rel="noopener">→ Play on itch.io</a>
+          </div>
+        </div>
+        <div class="more-card">
+          <button class="card-media" data-video="https://www.youtube.com/embed/Uc2BBYZAGlw" data-img="" aria-label="Play Hop Around gameplay video">
+            <img src="assets/hop-around.jpg" alt="Hop Around banner" loading="lazy">
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Hop Around</h3>
+            <p class="card-desc">Android platformer starring a frog with a tongue-grapple mechanic, steered by tilting the device — accelerometer-driven movement was the core of the concept, plus a full C# implementation.</p>
+            <div class="tag-row"><b>School</b> Rubika <b>Year</b> 2021–22</div>
+            <a class="detail-link" href="#" data-detail="detail-hoparound">→ Technical breakdown</a>
+          </div>
+        </div>
+        <div class="more-card">
+          <button class="card-media" data-video="https://www.youtube.com/embed/MrHmkhW9l0U" data-img="" aria-label="Play Status: Unknown trailer">
+            <img src="assets/status-unknown.jpg" alt="Status: Unknown screenshot" loading="lazy">
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">Status: Unknown</h3>
+            <p class="card-desc">A Unity action game built solo as gameplay &amp; UI engineer — a custom, highly responsive character controller and a modern UI Toolkit-based interface.</p>
+            <div class="tag-row"><b>Year</b> 2024</div>
+            <a class="detail-link" href="#" data-detail="detail-status">→ Technical breakdown</a>
+          </div>
+        </div>
+        <div class="more-card">
+          <button class="card-media" data-video="" data-img="assets/i-cant-bear-you.jpg" aria-label="View I Can't Bear You image">
+            <img src="assets/i-cant-bear-you.jpg" alt="I Can't Bear You screenshot" loading="lazy">
+          </button>
+          <div class="card-body">
+            <h3 class="card-title">I Can't Bear You</h3>
+            <p class="card-desc">A systemic stealth-action sandbox: play as a bear crashing an NPC party, driven by a needs-based AI system and a fully interactive, destructible environment.</p>
+            <div class="tag-row"><b>Year</b> 2023</div>
+            <a class="detail-link" href="#" data-detail="detail-bear">→ Technical breakdown</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2>Toolset</h2>
+        <span class="section-tag">Engines · Tech art · Pipeline</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <h3>Engines</h3>
+          <ul>
+            <li>Unity <span>C#, asset integration, tooling</span></li>
+            <li>Godot <span>GDScript, C#</span></li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Technical Art</h3>
+          <ul>
+            <li>HLSL <span>custom shaders</span></li>
+            <li>ShaderGraph <span>node-based shading</span></li>
+            <li>Tool development <span>editor &amp; pipeline tools</span></li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>3D / DCC</h3>
+          <ul>
+            <li>Blender <span>modeling, UV unwrapping</span></li>
+            <li>Retopology <span>game-ready assets</span></li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Pipeline &amp; Software</h3>
+          <ul>
+            <li>Git · Perforce · PlasticSCM <span>version control</span></li>
+            <li>Photoshop / GIMP <span>texturing, editing</span></li>
+            <li>Illustrator / Animate <span>vector &amp; motion</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2>Experience</h2>
+        <span class="section-tag">Freelance since 2020</span>
+      </div>
+      <div class="timeline">
+        <div class="t-row">
+          <div class="t-date">10/2025 — present</div>
+          <div><p class="t-role">Unity Developer</p><p class="t-org">Galerie Perrotin — freelance</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">09/2024 — present</div>
+          <div><p class="t-role">Unity Developer (VR)</p><p class="t-org">LMC2, Memory Brain &amp; Cognition Lab — internship then freelance</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">08/2023 &amp; 08/2024</div>
+          <div><p class="t-role">Unity Trainer</p><p class="t-org">LessonSharing — freelance</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">04/2021 — 07/2021</div>
+          <div><p class="t-role">UI Developer</p><p class="t-org">GreenBig — freelance</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">2020 — 2021</div>
+          <div><p class="t-role">Facilitator, Content Writer</p><p class="t-org">Tech Kids Academy — internship / freelance</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">Summer 2019 — 2026</div>
+          <div><p class="t-role">Camp Counselor</p><p class="t-org">Telligo — game-dev &amp; coding workshops for kids and teens</p></div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px;">
+        <span class="section-num">05</span>
+        <h2>Education</h2>
+        <span class="section-tag">RUBIKA · LISAA</span>
+      </div>
+      <div class="timeline">
+        <div class="t-row">
+          <div class="t-date">2022 — 2024</div>
+          <div><p class="t-role">Master's in Game Programming</p><p class="t-org">RUBIKA</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">2021 — 2022</div>
+          <div><p class="t-role">Bachelor's in Game Programming</p><p class="t-org">RUBIKA — gameplay programming (Unity), graphics programming</p></div>
+        </div>
+        <div class="t-row">
+          <div class="t-date">2017 — 2020</div>
+          <div><p class="t-role">Bachelor's in Video Game Design 2D/3D</p><p class="t-org">LISAA Paris — 3D environment, lighting, shaders</p></div>
+        </div>
+      </div>
+
+      <div class="timeline-foot">
+        <a class="link-arrow" href="assets/CV_AnthimeROUX_Freelance_EN.pdf" target="_blank" rel="noopener">→ Download the full résumé</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <h2>Let's build something.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:anthime.roux@hotmail.fr" title="anthime.roux@hotmail.fr">Send email</a>
+        <a href="tel:+33673649264">+33 (0)6 73 64 92 64</a>
+        <span class="loc">Montrouge, France · open to Frankfurt, DE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:8px;">
+    <span>© 2026 Anthime Roux</span>
+    <span>Built with Unity, C# &amp; a bit of HLSL</span>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modal">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalClose">CLOSE ✕</button>
+    <div class="modal-media" id="modalMedia"></div>
+  </div>
+</div>
+
+<template id="detail-lmc2">
+  <h3 class="detail-title">VR Suite — LMC2</h3>
+
+  <div class="detail-block">
+    <h4>Editor Tooling</h4>
+    <ul>
+      <li><b>CC4 avatar setup</b> — a custom editor window automates the full avatar workflow: configuring the XR rig, setting up the humanoid rig, and applying <code>VRIK</code> with Full Body (trackers), Hands-Only, or No-Visual embodiment modes, including headset-specific offsets.</li>
+      <li><b>Calibration</b> — dedicated calibration logic accurately maps the physical player onto the virtual avatar.</li>
+      <li><b>OpenXR device picker</b> — editor tool to target Meta, Pico or Vive: updates OpenXR settings, enables the required interaction profiles and switches the <code>BuildTarget</code> in one click.</li>
+      <li><b>Asset bundle pipeline</b> — automates creation, tagging, build and copy of avatar bundles into the final build's <code>StreamingAssets</code> folder.</li>
+      <li><b>Custom components</b> — a custom inspector for interactable objects, handling grab/release actions.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Runtime Architecture</h4>
+    <p class="detail-sub">Modular runtime handling locomotion, interaction and user embodiment for cognitive-science experiments.</p>
+    <ul>
+      <li><b>Dynamic loading</b> — asynchronous avatar instantiation from local or remote <code>AssetBundles</code> via <code>UnityWebRequest</code> and <code>LoadFromFileAsync</code>, rather than hardcoding avatars into the scene — scalable for setups that need to swap characters.</li>
+      <li><b>Procedural hand animation</b> — independent per-finger flexion driven by user input, with the animation dynamically halted on collision detection (<code>Physics.CheckSphere</code>) on the interaction layer.</li>
+      <li><b>IK &amp; embodiment</b> — <code>VRIK</code> (FinalIK) integration supporting FullBody (with trackers) and HandsOnly modes, including an artificial delay parameter on body-tracker following for disembodiment-study protocols.</li>
+      <li><b>Locomotion &amp; comfort</b> — Strategy pattern to swap movement logic (joystick, physical walking, "Wii Sports"-style). Dynamic vignette (tunneling) auto-activates above configurable linear/angular speed thresholds.</li>
+      <li><b>Interaction system</b> — grabbable-object detection via <code>OverlapSphere</code> by type (Touchable, OneShot, Carryable), coupled to a cross-platform haptic controller generating complex patterns (ramp-up, double-tap).</li>
+      <li><b>Input assignment</b> — Unity's Input System dynamically binds controllers and Vive trackers (waist, feet) to the <code>CameraRig</code> at initialization.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Project Architecture</h4>
+    <ul>
+      <li><b>Assembly separation</b> — runtime and editor code split into separate assemblies, keeping dependencies clean and build times fast.</li>
+      <li><b>Hardware profiles</b> — ScriptableObjects manage different VR hardware profiles and tracker offsets, so new headsets or trackers can be supported without touching core code.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-vth">
+  <h3 class="detail-title">Maison virtuelle de l'adolescent — Technical Systems</h3>
+
+  <div class="detail-block">
+    <h4>Network Architecture (NGO)</h4>
+    <ul>
+      <li><b>Cross-scene persistence</b> — player entity persistence across scenes, handled through a runtime database.</li>
+      <li><b>Secured connections</b> — custom connection approval via a version-payload comparison check.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Backend Services (PlayFab)</h4>
+    <ul>
+      <li><b>Custom authentication</b> — email/password auth with one-time code generation and delivery (2FA).</li>
+      <li><b>Data sync</b> — asynchronous saving and syncing of player data, including modular assembly of avatar meshes.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Communications (Vivox)</h4>
+    <ul>
+      <li><b>Spatial voice chat</b> — spatialized (3D) voice chat, coupled to the player's camera position.</li>
+      <li><b>Text chat</b> — text chat system with an adaptive UI and message history.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Multiplayer Mechanics</h4>
+    <ul>
+      <li><b>Instanced housing</b> — apartment ownership logic (<code>NetworkObject.ChangeOwnership</code>) with a "knock on the door" interaction requiring tenant authorization, or forced entry for admins.</li>
+      <li><b>Prop Hunt</b> — networked mini-game managing a full match lifecycle: prep phase, networked timers, and voice-channel switching for eliminated players.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-blast">
+  <h3 class="detail-title">Blast — Technical Systems</h3>
+
+  <div class="detail-block">
+    <h4>Architecture &amp; Patterns</h4>
+    <ul>
+      <li><b>Custom object pooling</b> — a pooling system for the high volume of concurrent projectiles and enemies, avoiding garbage collection spikes, important on mobile.</li>
+      <li><b>ScriptableObject-driven data</b> — player, enemy and weapon stats live in ScriptableObjects, decoupling balancing data from logic so values can be tuned without touching code.</li>
+      <li><b>Decoupled event system</b> — a ScriptableObject-based event architecture keeps components loosely coupled rather than wired directly to each other.</li>
+      <li><b>Procedural mesh generation</b> — a custom builder computes vertices, miter joints, UVs and normals at runtime to build the arena's wall geometry.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Gameplay Systems</h4>
+    <ul>
+      <li><b>Modern input handling</b> — Unity's new Input System drives dual-joystick mobile touch controls.</li>
+      <li><b>Weapon variety</b> — Shotgun, Bouncer (ricocheting bullets), Explosive and a custom SnakeGun, all built on the same flexible weapon system.</li>
+      <li><b>Enemy AI variety</b> — distinct behaviors (Kamikaze, ShotgunEnemy, Cubsicles, and a multi-part Snake enemy) each demanding a different player strategy.</li>
+      <li><b>Save data</b> — a persistent progress manager using binary serialization to store level completion and times locally.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-hoparound">
+  <h3 class="detail-title">Hop Around — Technical Highlights</h3>
+
+  <div class="detail-block">
+    <ul>
+      <li><b>Gyroscope-driven movement</b> — device tilt controls the frog's horizontal movement and turning, the core input driving the whole game.</li>
+      <li><b>Touch-to-world grapple targeting</b> — touch input combined with screen-to-world raycasting lets players tap a target to latch the tongue onto it.</li>
+      <li><b>Custom velocity curves</b> — hand-tuned acceleration, deceleration and turning curves replace default rigidbody physics for precise aerial and grounded momentum.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-hazel">
+  <h3 class="detail-title">Hazel — Technical Systems</h3>
+
+  <div class="detail-block">
+    <h4>Core Gameplay &amp; Mechanics</h4>
+    <ul>
+      <li><b>Twin-stick physics manipulation</b> — aim, grab and throw physics-based objects via mouse or gamepad right-stick, distinguishing small projectiles from heavy environmental objects.</li>
+      <li><b>Vacuum combat &amp; inventory</b> — sucks up items, stores them in a visual inventory queue, and fires them back out as physics projectiles.</li>
+      <li><b>Character controller</b> — coyote time, variable jump heights and wall-climbing, driven by custom <code>AnimationCurves</code> for grounded/aerial acceleration and jump forces, plus environmental interactions (ice friction, timed slow/freeze effects).</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Boss AI</h4>
+    <ul>
+      <li><b>State-machine boss</b> — a multi-phase boss driven by a randomized state machine (Swoop, Wind, Flash, Feather, Targeted).</li>
+      <li><b>Varied attack patterns</b> — Flash uses URP 2D lights and line-of-sight raycasts to blind the player, Wind applies continuous physics forces to push them around the arena, and Feather fires a pooled projectile spread via localized rotation.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Architecture &amp; Tooling</h4>
+    <ul>
+      <li><b>Procedural tail animation</b> — forward kinematics animate the tail from velocity, distance constraints and <code>AnimationCurves</code>, with an idle return pose.</li>
+      <li><b>ScriptableObject event system</b> — a decoupled, ScriptableObject-based architecture for modular, scalable communication between systems.</li>
+      <li><b>Object pooling</b> — handles heavy instantiation of items, boss projectiles and VFX without GC spikes.</li>
+      <li><b>Modern Unity stack</b> — new Input System, URP 2D lighting, and DOTween for animation and cinematic sequencing.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-expressioncc4">
+  <h3 class="detail-title">ExpressionCC4 — Technical Systems</h3>
+
+  <div class="detail-block">
+    <h4>Expression Capture &amp; Playback</h4>
+    <ul>
+      <li><b>Expression capture tool</b> — a custom editor window reads every blend shape weight on a selected renderer and saves them as a reusable expression asset, so expressions can be authored once and reused across avatars.</li>
+      <li><b>Smooth transitions</b> — expressions blend at runtime by interpolating <code>SetBlendShapeWeight</code> values, with adjustable intensity and duration rather than snapping instantly.</li>
+      <li><b>Editor-side testing</b> — a custom inspector adds buttons and sliders directly on the component to preview and test transitions without writing test code.</li>
+      <li><b>Procedural blink system</b> — an independent coroutine drives natural, randomized blinking (interval and duration both randomized) on its own timer, layered on top of any active expression.</li>
+    </ul>
+  </div>
+
+  <div class="detail-block">
+    <h4>Automated Lip-Sync Rigging</h4>
+    <ul>
+      <li><b>One-click setup</b> — an editor window auto-configures lip sync on a target CC4 avatar: matches each phoneme to its corresponding viseme blend shape by name (via <code>GetBlendShapeIndex</code>), and creates a dedicated lip-sync controller object with the required components already wired together.</li>
+      <li><b>Built on uLipSync</b> — integrates the uLipSync package for real-time phoneme detection from audio.</li>
+      <li><b>Guided setup</b> — the tool prompts the remaining manual steps needed to get lip sync working correctly (assigning voice profiles, adjusting the humanoid rig configuration).</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-bear">
+  <h3 class="detail-title">I Can't Bear You — Technical Highlights</h3>
+
+  <div class="detail-block">
+    <ul>
+      <li><b>Needs-driven NPCs</b> — stats (hunger, thirst, bladder) decay over time; once a threshold is crossed, the NPC paths to a relevant point of interest via the <code>NavMesh</code> — food, punch bowls, bathrooms.</li>
+      <li><b>Crowd awareness</b> — NPCs move between calm, tense and panic (fleeing to exit points), and the player can trigger fear or disturbances that ripple through the crowd.</li>
+      <li><b>Physics-based throwing</b> — aiming and throwing with trajectory projection, letting players pick up, aim and launch objects.</li>
+      <li><b>Systemic interactions</b> — a shared interaction framework drives sandbox eliminations: poisoning punch bowls, electrocution, physics-based smashing.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="detail-status">
+  <h3 class="detail-title">Status: Unknown — Technical Highlights</h3>
+
+  <div class="detail-block">
+    <ul>
+      <li><b>Parallel state machine</b> — a slot-based state system splits movement, aiming and actions into independent slots, so the player can move, aim and fire or reload at the same time.</li>
+      <li><b>Input buffering</b> — captures and delays inputs during locked animations (melee build-ups, dodges), improving responsiveness in fast combat.</li>
+      <li><b>UI Toolkit architecture</b> — built on Unity's modern <code>UIDocument</code> / <code>VisualElement</code> system instead of legacy uGUI, including a custom radial-fill element that generates its own mesh instead of relying on sprite masks.</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalBox = document.getElementById('modalBox');
+  const modalMedia = document.getElementById('modalMedia');
+  const modalClose = document.getElementById('modalClose');
+
+  document.querySelectorAll('.card-media[data-video], .card-media[data-img]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const video = btn.getAttribute('data-video');
+      const img = btn.getAttribute('data-img');
+      modalBox.classList.remove('text-mode');
+      modalBox.classList.toggle('wide-mode', btn.hasAttribute('data-wide'));
+      modalMedia.innerHTML = '';
+      if(video){
+        const iframe = document.createElement('iframe');
+        iframe.src = video + '?autoplay=1&rel=0';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        modalMedia.appendChild(iframe);
+        modal.classList.add('open');
+      } else if(img){
+        const image = document.createElement('img');
+        image.src = img;
+        image.alt = '';
+        modalMedia.appendChild(image);
+        modal.classList.add('open');
+      }
+    });
+  });
+
+  document.querySelectorAll('.detail-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tpl = document.getElementById(link.getAttribute('data-detail'));
+      if(!tpl) return;
+      modalBox.classList.add('text-mode');
+      modalBox.classList.remove('wide-mode');
+      modalMedia.innerHTML = '';
+      modalMedia.appendChild(tpl.content.cloneNode(true));
+      modal.classList.add('open');
+    });
+  });
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modalBox.classList.remove('text-mode');
+    modalBox.classList.remove('wide-mode');
+    modalMedia.innerHTML = '';
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
