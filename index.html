@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthime Roux — Freelance Unity Developer &amp; Technical Artist</title>
-<meta name="description" content="Freelance Unity developer specializing in VR/XR, production tooling and technical art.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Anthime Roux — Freelance Unity Developer, France &amp; Frankfurt</title>
+<meta name="description" content="Freelance Unity developer based in France, open to missions in France and the Frankfurt area. Specializing in VR/XR, production tooling and technical art.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -115,7 +114,14 @@
     transform:translateX(-50%);
     background:linear-gradient(115deg, #078d70 0%, #26cead 26%, #98e8c1 46%, #7bade2 62%, #5049cc 82%, #3d1a78 100%);
     filter:blur(120px);
-    opacity:0.22;
+    opacity:0.16;
+    pointer-events:none;
+  }
+  .hero-grain{
+    position:absolute; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:0.09;
+    mix-blend-mode:screen;
     pointer-events:none;
   }
   .hero-inner{position:relative; z-index:2;}
@@ -185,6 +191,26 @@
     display:grid; grid-template-columns:repeat(2, 1fr); gap:22px;
   }
   @media (max-width:800px){ .project-grid{grid-template-columns:1fr;} }
+
+  /* ---------- FEATURED PROJECT ---------- */
+  .featured{
+    display:grid; grid-template-columns:1.05fr 1fr;
+    background:var(--bg-panel); border:1px solid var(--wire); border-radius:8px;
+    overflow:hidden; margin-bottom:26px;
+  }
+  @media (max-width:800px){ .featured{grid-template-columns:1fr;} }
+  .featured-media{
+    position:relative; width:100%; height:100%; min-height:280px;
+    background:#0f1216; border:0; padding:0; cursor:pointer; display:block; overflow:hidden;
+  }
+  .featured-media img{width:100%; height:100%; object-fit:cover; display:block;}
+  .featured-body{padding:32px; display:flex; flex-direction:column; gap:12px;}
+  .featured-eyebrow{
+    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.1em;
+    color:var(--wire);
+  }
+  .featured-body .card-title{font-size:26px;}
+  .featured-body .card-desc{font-size:15px;}
 
   .card{
     background:var(--bg-panel);
@@ -322,10 +348,6 @@
   .modal-close:hover{color:var(--ink);}
 
   /* ---------- DETAIL (technical breakdown) MODAL ---------- */
-  .modal-box.text-mode .modal-media{
-    aspect-ratio:auto; max-height:72vh; overflow-y:auto; background:var(--bg-panel);
-    padding:4px 30px 30px;
-  }
   .modal-box.wide-mode .modal-media{
     aspect-ratio:auto; background:#000;
   }
@@ -350,10 +372,17 @@
     font-family:var(--mono); font-size:12.5px; color:var(--wire);
     background:rgba(38,206,173,0.08); padding:1px 5px; border-radius:3px;
   }
-  .detail-title{
-    font-family:var(--display); font-size:20px; font-weight:600; margin:0 0 18px;
-    position:sticky; top:0; background:var(--bg-panel); padding-top:4px;
+  .tech-details{margin-top:2px;}
+  .tech-details summary{
+    font-family:var(--mono); font-size:12.5px; color:var(--wire);
+    cursor:pointer; list-style:none; padding:8px 0;
+    display:inline-flex; align-items:center; gap:6px;
   }
+  .tech-details summary::-webkit-details-marker{display:none;}
+  .tech-details summary::before{content:'→';}
+  .tech-details[open] summary::before{content:'↓';}
+  .tech-details summary:hover{text-decoration:underline;}
+  .tech-details .detail-block{margin-top:18px;}
 </style>
 </head>
 <body>
@@ -375,10 +404,11 @@
   <section class="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <div class="eyebrow">Freelance · Unity · C# · Technical Art</div>
-      <h1>I build the tools and worlds<br>behind <em>interactive experiences.</em></h1>
-      <p class="hero-sub">Unity developer &amp; technical artist specializing in VR/XR, production tooling and shader work. Open to freelance missions — game dev, technical art, or VR/XR — in France and Germany (Frankfurt area). Short missions welcome.</p>
+      <h1>Gameplay, tools, technical art — I end up <em>going deep on all three.</em></h1>
+      <p class="hero-sub">Unity developer working across VR/XR, production tooling and shader work. Currently open to freelance missions — short or long — in France and Germany (Frankfurt area).</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#work">View the work</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -394,6 +424,68 @@
         <span class="section-tag">Professional &amp; client work</span>
       </div>
 
+        <div class="featured">
+          <button class="featured-media" data-video="" data-img="assets/vr-suite.jpg" data-wide="" aria-label="View VR Suite image">
+            <img src="assets/vr-suite.jpg" alt="VR Suite — hand interaction system and OpenXR device picker tool" loading="lazy">
+          </button>
+          <div class="featured-body">
+            <span class="featured-eyebrow">★ Featured project</span>
+            <h3 class="card-title">VR Suite — LMC2</h3>
+            <p class="card-desc">An in-house VR package built to give 
+the lab a generic, reusable solution rather than one-off builds — 
+configurable editor tooling and a modular runtime, adapted to the needs 
+of different experimental protocols.</p>
+            <div class="tag-row"><b>Lab</b> LMC2 <b>Engine</b> Unity <b>Role</b> Tools &amp; runtime architecture <b>Year</b> 2025–</div>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+
+              <div class="detail-block">
+                <h4>Editor Tooling</h4>
+                <ul>
+                  <li><b>CC4 avatar setup</b> — a custom editor window automates the full avatar workflow: configuring the XR rig, setting up the humanoid rig, and applying <code>VRIK</code> with Full Body (trackers), Hands-Only, or No-Visual embodiment modes, including headset-specific offsets.</li>
+                  <li><b>Calibration</b> — dedicated calibration logic accurately maps the physical player onto the virtual avatar.</li>
+                  <li><b>OpenXR device picker</b> — editor tool to 
+target Meta, Pico or Vive: updates OpenXR settings, enables the required
+ interaction profiles and switches the <code>BuildTarget</code> in one click.</li>
+                  <li><b>Asset bundle pipeline</b> — automates creation, tagging, build and copy of avatar bundles into the final build's <code>StreamingAssets</code> folder.</li>
+                  <li><b>Custom components</b> — a custom inspector for interactable objects, handling grab/release actions.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Runtime Architecture</h4>
+                <p class="detail-sub">Modular runtime handling locomotion, interaction and user embodiment for cognitive-science experiments.</p>
+                <ul>
+                  <li><b>Dynamic loading</b> — asynchronous avatar instantiation from local or remote <code>AssetBundles</code> via <code>UnityWebRequest</code> and <code>LoadFromFileAsync</code>, rather than hardcoding avatars into the scene — scalable for setups that need to swap characters.</li>
+                  <li><b>Procedural hand animation</b> — independent per-finger flexion driven by user input, with the animation dynamically halted on collision detection (<code>Physics.CheckSphere</code>) on the interaction layer.</li>
+                  <li><b>IK &amp; embodiment</b> — <code>VRIK</code> 
+(FinalIK) integration supporting FullBody (with trackers) and HandsOnly 
+modes, including an artificial delay parameter on body-tracker following
+ for disembodiment-study protocols.</li>
+                  <li><b>Locomotion &amp; comfort</b> — Strategy pattern
+ to swap movement logic (joystick, physical walking, "Wii 
+Sports"-style). Dynamic vignette (tunneling) auto-activates above 
+configurable linear/angular speed thresholds.</li>
+                  <li><b>Interaction system</b> — grabbable-object detection via <code>OverlapSphere</code>
+ by type (Touchable, OneShot, Carryable), coupled to a cross-platform 
+haptic controller generating complex patterns (ramp-up, double-tap).</li>
+                  <li><b>Input assignment</b> — Unity's Input System dynamically binds controllers and Vive trackers (waist, feet) to the <code>CameraRig</code> at initialization.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Project Architecture</h4>
+                <ul>
+                  <li><b>Assembly separation</b> — runtime and editor code split into separate assemblies, keeping dependencies clean and build times fast.</li>
+                  <li><b>Hardware profiles</b> — ScriptableObjects 
+manage different VR hardware profiles and tracker offsets, so new 
+headsets or trackers can be supported without touching core code.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
       <div class="project-grid">
 
         <article class="card">
@@ -402,7 +494,11 @@
           </button>
           <div class="card-body">
             <h3 class="card-title">Mimosa</h3>
-            <p class="card-desc">A standalone macOS application built for <b style="color:var(--ink)">Galerie Perrotin</b> — one of the leading international contemporary art galleries — generating 3D simulations of gallery spaces for exhibitions and art fairs. Ongoing freelance engagement, maintaining and extending the tool. Screenshots are limited here due to client confidentiality.</p>
+            <p class="card-desc">A standalone macOS application built for <b style="color:var(--ink)">Galerie Perrotin</b>
+ — one of the leading international contemporary art galleries — 
+generating 3D simulations of gallery spaces for exhibitions and art 
+fairs. Ongoing freelance engagement, maintaining and extending the tool.
+ Screenshots are limited here due to client confidentiality.</p>
             <div class="tag-row"><b>Client</b> Galerie Perrotin <b>Engine</b> Unity <b>Role</b> Solo dev <b>Year</b> 2025–</div>
           </div>
         </article>
@@ -410,37 +506,100 @@
         <article class="card">
           <button class="card-media" data-video="https://www.youtube.com/embed/cJMK9T7eGHE" data-img="" aria-label="Play Maison virtuelle de l'adolescent video">
             <img src="assets/maison-virtuelle.jpg" alt="Maison virtuelle de l'adolescent screenshot" loading="lazy">
-            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"></path></svg></span></span>
           </button>
           <div class="card-body">
             <h3 class="card-title">Maison virtuelle de l'adolescent</h3>
-            <p class="card-desc">A therapeutic, Habbo-inspired virtual space built for a cognitive-science research lab, with its own dedicated multiplayer architecture (Netcode for GameObjects), PlayFab backend and spatialized Vivox voice chat.</p>
+            <p class="card-desc">A therapeutic, Habbo-inspired virtual 
+space built for a cognitive-science research lab, with its own dedicated
+ multiplayer architecture (Netcode for GameObjects), PlayFab backend and
+ spatialized Vivox voice chat.</p>
             <div class="tag-row"><b>Lab</b> LMC2 <b>Engine</b> Unity <b>Role</b> Unity dev <b>Year</b> 2024–</div>
-            <a class="detail-link" href="#" data-detail="detail-vth">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+
+              <div class="detail-block">
+                <h4>Network Architecture (NGO)</h4>
+                <ul>
+                  <li><b>Cross-scene persistence</b> — player entity persistence across scenes, handled through a runtime database.</li>
+                  <li><b>Secured connections</b> — custom connection approval via a version-payload comparison check.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Backend Services (PlayFab)</h4>
+                <ul>
+                  <li><b>Custom authentication</b> — email/password auth with one-time code generation and delivery (2FA).</li>
+                  <li><b>Data sync</b> — asynchronous saving and syncing of player data, including modular assembly of avatar meshes.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Communications (Vivox)</h4>
+                <ul>
+                  <li><b>Spatial voice chat</b> — spatialized (3D) voice chat, coupled to the player's camera position.</li>
+                  <li><b>Text chat</b> — text chat system with an adaptive UI and message history.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Multiplayer Mechanics</h4>
+                <ul>
+                  <li><b>Instanced housing</b> — apartment ownership logic (<code>NetworkObject.ChangeOwnership</code>) with a "knock on the door" interaction requiring tenant authorization, or forced entry for admins.</li>
+                  <li><b>Prop Hunt</b> — networked mini-game managing a 
+full match lifecycle: prep phase, networked timers, and voice-channel 
+switching for eliminated players.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
 
         <article class="card">
-          <button class="card-media" data-video="" data-img="assets/vr-suite.jpg" data-wide aria-label="View VR Suite image">
-            <img src="assets/vr-suite.jpg" alt="VR Suite — hand interaction system and OpenXR device picker tool" loading="lazy">
-          </button>
-          <div class="card-body">
-            <h3 class="card-title">VR Suite — LMC2</h3>
-            <p class="card-desc">An in-house VR package built to give the lab a generic, reusable solution rather than one-off builds — configurable editor tooling and a modular runtime, adapted to the needs of different experimental protocols.</p>
-            <div class="tag-row"><b>Lab</b> LMC2 <b>Engine</b> Unity <b>Role</b> Tools &amp; runtime architecture <b>Year</b> 2025–</div>
-            <a class="detail-link" href="#" data-detail="detail-lmc2">→ Technical breakdown</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <button class="card-media" data-video="" data-img="assets/expressioncc4.jpg" data-wide aria-label="View ExpressionCC4 image">
+          <button class="card-media" data-video="" data-img="assets/expressioncc4.jpg" data-wide="" aria-label="View ExpressionCC4 image">
             <img src="assets/expressioncc4.jpg" alt="ExpressionCC4 — four facial expressions on a CC4 avatar" loading="lazy">
           </button>
           <div class="card-body">
             <h3 class="card-title">ExpressionCC4</h3>
-            <p class="card-desc">A facial expression and lip-sync toolkit for CC4 avatars — capture and reuse blend-shape expressions, transition smoothly between them at runtime, and auto-rig lip sync from a single editor window.</p>
+            <p class="card-desc">A facial expression and lip-sync 
+toolkit for CC4 avatars — capture and reuse blend-shape expressions, 
+transition smoothly between them at runtime, and auto-rig lip sync from a
+ single editor window.</p>
             <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Tools &amp; Technical Art (solo) <b>Year</b> 2025–</div>
-            <a class="detail-link" href="#" data-detail="detail-expressioncc4">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+
+              <div class="detail-block">
+                <h4>Expression Capture &amp; Playback</h4>
+                <ul>
+                  <li><b>Expression capture tool</b> — a custom editor 
+window reads every blend shape weight on a selected renderer and saves 
+them as a reusable expression asset, so expressions can be authored once
+ and reused across avatars.</li>
+                  <li><b>Smooth transitions</b> — expressions blend at runtime by interpolating <code>SetBlendShapeWeight</code> values, with adjustable intensity and duration rather than snapping instantly.</li>
+                  <li><b>Editor-side testing</b> — a custom inspector 
+adds buttons and sliders directly on the component to preview and test 
+transitions without writing test code.</li>
+                  <li><b>Procedural blink system</b> — an independent 
+coroutine drives natural, randomized blinking (interval and duration 
+both randomized) on its own timer, layered on top of any active 
+expression.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Automated Lip-Sync Rigging</h4>
+                <ul>
+                  <li><b>One-click setup</b> — an editor window 
+auto-configures lip sync on a target CC4 avatar: matches each phoneme to
+ its corresponding viseme blend shape by name (via <code>GetBlendShapeIndex</code>), and creates a dedicated lip-sync controller object with the required components already wired together.</li>
+                  <li><b>Built on uLipSync</b> — integrates the uLipSync package for real-time phoneme detection from audio.</li>
+                  <li><b>Guided setup</b> — the tool prompts the 
+remaining manual steps needed to get lip sync working correctly 
+(assigning voice profiles, adjusting the humanoid rig configuration).</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -451,9 +610,40 @@
           </button>
           <div class="card-body">
             <h3 class="card-title">Blast</h3>
-            <p class="card-desc">A mobile twin-stick shooter built solo, focused on a scalable architecture: custom object pooling, ScriptableObject-driven data and events, and a procedural mesh generator that builds the arena walls at runtime.</p>
+            <p class="card-desc">A mobile twin-stick shooter built solo,
+ focused on a scalable architecture: custom object pooling, 
+ScriptableObject-driven data and events, and a procedural mesh generator
+ that builds the arena walls at runtime.</p>
             <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Solo dev (code + shaders) <b>Year</b> 2024</div>
-            <a class="detail-link" href="#" data-detail="detail-blast">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+
+              <div class="detail-block">
+                <h4>Architecture &amp; Patterns</h4>
+                <ul>
+                  <li><b>Custom object pooling</b> — a pooling system 
+for the high volume of concurrent projectiles and enemies, avoiding 
+garbage collection spikes, important on mobile.</li>
+                  <li><b>ScriptableObject-driven data</b> — player, 
+enemy and weapon stats live in ScriptableObjects, decoupling balancing 
+data from logic so values can be tuned without touching code.</li>
+                  <li><b>Decoupled event system</b> — a ScriptableObject-based event architecture keeps components loosely coupled rather than wired directly to each other.</li>
+                  <li><b>Procedural mesh generation</b> — a custom builder computes vertices, miter joints, UVs and normals at runtime to build the arena's wall geometry.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Gameplay Systems</h4>
+                <ul>
+                  <li><b>Modern input handling</b> — Unity's new Input System drives dual-joystick mobile touch controls.</li>
+                  <li><b>Weapon variety</b> — Shotgun, Bouncer (ricocheting bullets), Explosive and a custom SnakeGun, all built on the same flexible weapon system.</li>
+                  <li><b>Enemy AI variety</b> — distinct behaviors 
+(Kamikaze, ShotgunEnemy, Cubsicles, and a multi-part Snake enemy) each 
+demanding a different player strategy.</li>
+                  <li><b>Save data</b> — a persistent progress manager using binary serialization to store level completion and times locally.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -463,9 +653,46 @@
           </button>
           <div class="card-body">
             <h3 class="card-title">Hazel</h3>
-            <p class="card-desc">An ongoing 2D physics-based platformer, built with two other members of the Rewind team. Project lead, in charge of planning — twin-stick object manipulation, a vacuum-based inventory system, and multi-phase boss fights.</p>
+            <p class="card-desc">An ongoing 2D physics-based platformer,
+ built with two other members of the Rewind team. Project lead, in 
+charge of planning — twin-stick object manipulation, a vacuum-based 
+inventory system, and multi-phase boss fights.</p>
             <div class="tag-row"><b>Engine</b> Unity <b>Role</b> Project lead, planning (team of 3) <b>Year</b> Ongoing</div>
-            <a class="detail-link" href="#" data-detail="detail-hazel">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+
+              <div class="detail-block">
+                <h4>Core Gameplay &amp; Mechanics</h4>
+                <ul>
+                  <li><b>Twin-stick physics manipulation</b> — aim, grab
+ and throw physics-based objects via mouse or gamepad right-stick, 
+distinguishing small projectiles from heavy environmental objects.</li>
+                  <li><b>Vacuum combat &amp; inventory</b> — sucks up items, stores them in a visual inventory queue, and fires them back out as physics projectiles.</li>
+                  <li><b>Character controller</b> — coyote time, variable jump heights and wall-climbing, driven by custom <code>AnimationCurves</code> for grounded/aerial acceleration and jump forces, plus environmental interactions (ice friction, timed slow/freeze effects).</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Boss AI</h4>
+                <ul>
+                  <li><b>State-machine boss</b> — a multi-phase boss driven by a randomized state machine (Swoop, Wind, Flash, Feather, Targeted).</li>
+                  <li><b>Varied attack patterns</b> — Flash uses URP 2D 
+lights and line-of-sight raycasts to blind the player, Wind applies 
+continuous physics forces to push them around the arena, and Feather 
+fires a pooled projectile spread via localized rotation.</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>Architecture &amp; Tooling</h4>
+                <ul>
+                  <li><b>Procedural tail animation</b> — forward kinematics animate the tail from velocity, distance constraints and <code>AnimationCurves</code>, with an idle return pose.</li>
+                  <li><b>ScriptableObject event system</b> — a decoupled, ScriptableObject-based architecture for modular, scalable communication between systems.</li>
+                  <li><b>Object pooling</b> — handles heavy instantiation of items, boss projectiles and VFX without GC spikes.</li>
+                  <li><b>Modern Unity stack</b> — new Input System, URP 2D lighting, and DOTween for animation and cinematic sequencing.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -484,7 +711,9 @@
           </button>
           <div class="card-body">
             <h3 class="card-title">Rewind</h3>
-            <p class="card-desc">2.5D platformer/puzzle built around a time-rewind mechanic. Project lead for a 4-person team; programmed core gameplay, produced character &amp; environment art.</p>
+            <p class="card-desc">2.5D platformer/puzzle built around a 
+time-rewind mechanic. Project lead for a 4-person team; programmed core 
+gameplay, produced character &amp; environment art.</p>
             <div class="tag-row"><b>School</b> LISAA <b>Year</b> 2019–20</div>
             <a class="detail-link" href="https://squirrel-eating-cardboard.itch.io/rewind" target="_blank" rel="noopener">→ Play on itch.io</a>
           </div>
@@ -492,25 +721,54 @@
         <div class="more-card">
           <button class="card-media" data-video="https://www.youtube.com/embed/Uc2BBYZAGlw" data-img="" aria-label="Play Hop Around gameplay video">
             <img src="assets/hop-around.jpg" alt="Hop Around banner" loading="lazy">
-            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"></path></svg></span></span>
           </button>
           <div class="card-body">
             <h3 class="card-title">Hop Around</h3>
-            <p class="card-desc">Android platformer starring a frog with a tongue-grapple mechanic, steered by tilting the device — accelerometer-driven movement was the core of the concept, plus a full C# implementation.</p>
+            <p class="card-desc">Android platformer starring a frog with
+ a tongue-grapple mechanic, steered by tilting the device — 
+accelerometer-driven movement was the core of the concept, plus a full 
+C# implementation.</p>
             <div class="tag-row"><b>School</b> Rubika <b>Year</b> 2021–22</div>
-            <a class="detail-link" href="#" data-detail="detail-hoparound">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+              <div class="detail-block">
+                <ul>
+                  <li><b>Gyroscope-driven movement</b> — device tilt controls the frog's horizontal movement and turning, the core input driving the whole game.</li>
+                  <li><b>Touch-to-world grapple targeting</b> — touch input combined with screen-to-world raycasting lets players tap a target to latch the tongue onto it.</li>
+                  <li><b>Custom velocity curves</b> — hand-tuned 
+acceleration, deceleration and turning curves replace default rigidbody 
+physics for precise aerial and grounded momentum.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
         <div class="more-card">
           <button class="card-media" data-video="https://www.youtube.com/embed/MrHmkhW9l0U" data-img="" aria-label="Play Status: Unknown trailer">
             <img src="assets/status-unknown.jpg" alt="Status: Unknown screenshot" loading="lazy">
-            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="play"><span class="play-icon"><svg viewBox="0 0 24 24" fill="#14171c"><path d="M8 5v14l11-7z"></path></svg></span></span>
           </button>
           <div class="card-body">
             <h3 class="card-title">Status: Unknown</h3>
-            <p class="card-desc">A Unity action game built solo as gameplay &amp; UI engineer — a custom, highly responsive character controller and a modern UI Toolkit-based interface.</p>
+            <p class="card-desc">A Unity action game built solo as 
+gameplay &amp; UI engineer — a custom, highly responsive character 
+controller and a modern UI Toolkit-based interface.</p>
             <div class="tag-row"><b>Year</b> 2024</div>
-            <a class="detail-link" href="#" data-detail="detail-status">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+              <div class="detail-block">
+                <ul>
+                  <li><b>Parallel state machine</b> — a slot-based state
+ system splits movement, aiming and actions into independent slots, so 
+the player can move, aim and fire or reload at the same time.</li>
+                  <li><b>Input buffering</b> — captures and delays inputs during locked animations (melee build-ups, dodges), improving responsiveness in fast combat.</li>
+                  <li><b>UI Toolkit architecture</b> — built on Unity's modern <code>UIDocument</code> / <code>VisualElement</code>
+ system instead of legacy uGUI, including a custom radial-fill element 
+that generates its own mesh instead of relying on sprite masks.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
         <div class="more-card">
@@ -519,9 +777,25 @@
           </button>
           <div class="card-body">
             <h3 class="card-title">I Can't Bear You</h3>
-            <p class="card-desc">A systemic stealth-action sandbox: play as a bear crashing an NPC party, driven by a needs-based AI system and a fully interactive, destructible environment.</p>
+            <p class="card-desc">A systemic stealth-action sandbox: play
+ as a bear crashing an NPC party, driven by a needs-based AI system and a
+ fully interactive, destructible environment.</p>
             <div class="tag-row"><b>Year</b> 2023</div>
-            <a class="detail-link" href="#" data-detail="detail-bear">→ Technical breakdown</a>
+            <details class="tech-details">
+              <summary>Technical breakdown</summary>
+              <div class="detail-block">
+                <ul>
+                  <li><b>Needs-driven NPCs</b> — stats (hunger, thirst, 
+bladder) decay over time; once a threshold is crossed, the NPC paths to a
+ relevant point of interest via the <code>NavMesh</code> — food, punch bowls, bathrooms.</li>
+                  <li><b>Crowd awareness</b> — NPCs move between calm, 
+tense and panic (fleeing to exit points), and the player can trigger 
+fear or disturbances that ripple through the crowd.</li>
+                  <li><b>Physics-based throwing</b> — aiming and throwing with trajectory projection, letting players pick up, aim and launch objects.</li>
+                  <li><b>Systemic interactions</b> — a shared interaction framework drives sandbox eliminations: poisoning punch bowls, electrocution, physics-based smashing.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -661,193 +935,6 @@
   </div>
 </div>
 
-<template id="detail-lmc2">
-  <h3 class="detail-title">VR Suite — LMC2</h3>
-
-  <div class="detail-block">
-    <h4>Editor Tooling</h4>
-    <ul>
-      <li><b>CC4 avatar setup</b> — a custom editor window automates the full avatar workflow: configuring the XR rig, setting up the humanoid rig, and applying <code>VRIK</code> with Full Body (trackers), Hands-Only, or No-Visual embodiment modes, including headset-specific offsets.</li>
-      <li><b>Calibration</b> — dedicated calibration logic accurately maps the physical player onto the virtual avatar.</li>
-      <li><b>OpenXR device picker</b> — editor tool to target Meta, Pico or Vive: updates OpenXR settings, enables the required interaction profiles and switches the <code>BuildTarget</code> in one click.</li>
-      <li><b>Asset bundle pipeline</b> — automates creation, tagging, build and copy of avatar bundles into the final build's <code>StreamingAssets</code> folder.</li>
-      <li><b>Custom components</b> — a custom inspector for interactable objects, handling grab/release actions.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Runtime Architecture</h4>
-    <p class="detail-sub">Modular runtime handling locomotion, interaction and user embodiment for cognitive-science experiments.</p>
-    <ul>
-      <li><b>Dynamic loading</b> — asynchronous avatar instantiation from local or remote <code>AssetBundles</code> via <code>UnityWebRequest</code> and <code>LoadFromFileAsync</code>, rather than hardcoding avatars into the scene — scalable for setups that need to swap characters.</li>
-      <li><b>Procedural hand animation</b> — independent per-finger flexion driven by user input, with the animation dynamically halted on collision detection (<code>Physics.CheckSphere</code>) on the interaction layer.</li>
-      <li><b>IK &amp; embodiment</b> — <code>VRIK</code> (FinalIK) integration supporting FullBody (with trackers) and HandsOnly modes, including an artificial delay parameter on body-tracker following for disembodiment-study protocols.</li>
-      <li><b>Locomotion &amp; comfort</b> — Strategy pattern to swap movement logic (joystick, physical walking, "Wii Sports"-style). Dynamic vignette (tunneling) auto-activates above configurable linear/angular speed thresholds.</li>
-      <li><b>Interaction system</b> — grabbable-object detection via <code>OverlapSphere</code> by type (Touchable, OneShot, Carryable), coupled to a cross-platform haptic controller generating complex patterns (ramp-up, double-tap).</li>
-      <li><b>Input assignment</b> — Unity's Input System dynamically binds controllers and Vive trackers (waist, feet) to the <code>CameraRig</code> at initialization.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Project Architecture</h4>
-    <ul>
-      <li><b>Assembly separation</b> — runtime and editor code split into separate assemblies, keeping dependencies clean and build times fast.</li>
-      <li><b>Hardware profiles</b> — ScriptableObjects manage different VR hardware profiles and tracker offsets, so new headsets or trackers can be supported without touching core code.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-vth">
-  <h3 class="detail-title">Maison virtuelle de l'adolescent — Technical Systems</h3>
-
-  <div class="detail-block">
-    <h4>Network Architecture (NGO)</h4>
-    <ul>
-      <li><b>Cross-scene persistence</b> — player entity persistence across scenes, handled through a runtime database.</li>
-      <li><b>Secured connections</b> — custom connection approval via a version-payload comparison check.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Backend Services (PlayFab)</h4>
-    <ul>
-      <li><b>Custom authentication</b> — email/password auth with one-time code generation and delivery (2FA).</li>
-      <li><b>Data sync</b> — asynchronous saving and syncing of player data, including modular assembly of avatar meshes.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Communications (Vivox)</h4>
-    <ul>
-      <li><b>Spatial voice chat</b> — spatialized (3D) voice chat, coupled to the player's camera position.</li>
-      <li><b>Text chat</b> — text chat system with an adaptive UI and message history.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Multiplayer Mechanics</h4>
-    <ul>
-      <li><b>Instanced housing</b> — apartment ownership logic (<code>NetworkObject.ChangeOwnership</code>) with a "knock on the door" interaction requiring tenant authorization, or forced entry for admins.</li>
-      <li><b>Prop Hunt</b> — networked mini-game managing a full match lifecycle: prep phase, networked timers, and voice-channel switching for eliminated players.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-blast">
-  <h3 class="detail-title">Blast — Technical Systems</h3>
-
-  <div class="detail-block">
-    <h4>Architecture &amp; Patterns</h4>
-    <ul>
-      <li><b>Custom object pooling</b> — a pooling system for the high volume of concurrent projectiles and enemies, avoiding garbage collection spikes, important on mobile.</li>
-      <li><b>ScriptableObject-driven data</b> — player, enemy and weapon stats live in ScriptableObjects, decoupling balancing data from logic so values can be tuned without touching code.</li>
-      <li><b>Decoupled event system</b> — a ScriptableObject-based event architecture keeps components loosely coupled rather than wired directly to each other.</li>
-      <li><b>Procedural mesh generation</b> — a custom builder computes vertices, miter joints, UVs and normals at runtime to build the arena's wall geometry.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Gameplay Systems</h4>
-    <ul>
-      <li><b>Modern input handling</b> — Unity's new Input System drives dual-joystick mobile touch controls.</li>
-      <li><b>Weapon variety</b> — Shotgun, Bouncer (ricocheting bullets), Explosive and a custom SnakeGun, all built on the same flexible weapon system.</li>
-      <li><b>Enemy AI variety</b> — distinct behaviors (Kamikaze, ShotgunEnemy, Cubsicles, and a multi-part Snake enemy) each demanding a different player strategy.</li>
-      <li><b>Save data</b> — a persistent progress manager using binary serialization to store level completion and times locally.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-hoparound">
-  <h3 class="detail-title">Hop Around — Technical Highlights</h3>
-
-  <div class="detail-block">
-    <ul>
-      <li><b>Gyroscope-driven movement</b> — device tilt controls the frog's horizontal movement and turning, the core input driving the whole game.</li>
-      <li><b>Touch-to-world grapple targeting</b> — touch input combined with screen-to-world raycasting lets players tap a target to latch the tongue onto it.</li>
-      <li><b>Custom velocity curves</b> — hand-tuned acceleration, deceleration and turning curves replace default rigidbody physics for precise aerial and grounded momentum.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-hazel">
-  <h3 class="detail-title">Hazel — Technical Systems</h3>
-
-  <div class="detail-block">
-    <h4>Core Gameplay &amp; Mechanics</h4>
-    <ul>
-      <li><b>Twin-stick physics manipulation</b> — aim, grab and throw physics-based objects via mouse or gamepad right-stick, distinguishing small projectiles from heavy environmental objects.</li>
-      <li><b>Vacuum combat &amp; inventory</b> — sucks up items, stores them in a visual inventory queue, and fires them back out as physics projectiles.</li>
-      <li><b>Character controller</b> — coyote time, variable jump heights and wall-climbing, driven by custom <code>AnimationCurves</code> for grounded/aerial acceleration and jump forces, plus environmental interactions (ice friction, timed slow/freeze effects).</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Boss AI</h4>
-    <ul>
-      <li><b>State-machine boss</b> — a multi-phase boss driven by a randomized state machine (Swoop, Wind, Flash, Feather, Targeted).</li>
-      <li><b>Varied attack patterns</b> — Flash uses URP 2D lights and line-of-sight raycasts to blind the player, Wind applies continuous physics forces to push them around the arena, and Feather fires a pooled projectile spread via localized rotation.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Architecture &amp; Tooling</h4>
-    <ul>
-      <li><b>Procedural tail animation</b> — forward kinematics animate the tail from velocity, distance constraints and <code>AnimationCurves</code>, with an idle return pose.</li>
-      <li><b>ScriptableObject event system</b> — a decoupled, ScriptableObject-based architecture for modular, scalable communication between systems.</li>
-      <li><b>Object pooling</b> — handles heavy instantiation of items, boss projectiles and VFX without GC spikes.</li>
-      <li><b>Modern Unity stack</b> — new Input System, URP 2D lighting, and DOTween for animation and cinematic sequencing.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-expressioncc4">
-  <h3 class="detail-title">ExpressionCC4 — Technical Systems</h3>
-
-  <div class="detail-block">
-    <h4>Expression Capture &amp; Playback</h4>
-    <ul>
-      <li><b>Expression capture tool</b> — a custom editor window reads every blend shape weight on a selected renderer and saves them as a reusable expression asset, so expressions can be authored once and reused across avatars.</li>
-      <li><b>Smooth transitions</b> — expressions blend at runtime by interpolating <code>SetBlendShapeWeight</code> values, with adjustable intensity and duration rather than snapping instantly.</li>
-      <li><b>Editor-side testing</b> — a custom inspector adds buttons and sliders directly on the component to preview and test transitions without writing test code.</li>
-      <li><b>Procedural blink system</b> — an independent coroutine drives natural, randomized blinking (interval and duration both randomized) on its own timer, layered on top of any active expression.</li>
-    </ul>
-  </div>
-
-  <div class="detail-block">
-    <h4>Automated Lip-Sync Rigging</h4>
-    <ul>
-      <li><b>One-click setup</b> — an editor window auto-configures lip sync on a target CC4 avatar: matches each phoneme to its corresponding viseme blend shape by name (via <code>GetBlendShapeIndex</code>), and creates a dedicated lip-sync controller object with the required components already wired together.</li>
-      <li><b>Built on uLipSync</b> — integrates the uLipSync package for real-time phoneme detection from audio.</li>
-      <li><b>Guided setup</b> — the tool prompts the remaining manual steps needed to get lip sync working correctly (assigning voice profiles, adjusting the humanoid rig configuration).</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-bear">
-  <h3 class="detail-title">I Can't Bear You — Technical Highlights</h3>
-
-  <div class="detail-block">
-    <ul>
-      <li><b>Needs-driven NPCs</b> — stats (hunger, thirst, bladder) decay over time; once a threshold is crossed, the NPC paths to a relevant point of interest via the <code>NavMesh</code> — food, punch bowls, bathrooms.</li>
-      <li><b>Crowd awareness</b> — NPCs move between calm, tense and panic (fleeing to exit points), and the player can trigger fear or disturbances that ripple through the crowd.</li>
-      <li><b>Physics-based throwing</b> — aiming and throwing with trajectory projection, letting players pick up, aim and launch objects.</li>
-      <li><b>Systemic interactions</b> — a shared interaction framework drives sandbox eliminations: poisoning punch bowls, electrocution, physics-based smashing.</li>
-    </ul>
-  </div>
-</template>
-
-<template id="detail-status">
-  <h3 class="detail-title">Status: Unknown — Technical Highlights</h3>
-
-  <div class="detail-block">
-    <ul>
-      <li><b>Parallel state machine</b> — a slot-based state system splits movement, aiming and actions into independent slots, so the player can move, aim and fire or reload at the same time.</li>
-      <li><b>Input buffering</b> — captures and delays inputs during locked animations (melee build-ups, dodges), improving responsiveness in fast combat.</li>
-      <li><b>UI Toolkit architecture</b> — built on Unity's modern <code>UIDocument</code> / <code>VisualElement</code> system instead of legacy uGUI, including a custom radial-fill element that generates its own mesh instead of relying on sprite masks.</li>
-    </ul>
-  </div>
-</template>
-
 <script>
   const modal = document.getElementById('modal');
   const modalBox = document.getElementById('modalBox');
@@ -858,7 +945,6 @@
     btn.addEventListener('click', () => {
       const video = btn.getAttribute('data-video');
       const img = btn.getAttribute('data-img');
-      modalBox.classList.remove('text-mode');
       modalBox.classList.toggle('wide-mode', btn.hasAttribute('data-wide'));
       modalMedia.innerHTML = '';
       if(video){
@@ -878,22 +964,8 @@
     });
   });
 
-  document.querySelectorAll('.detail-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const tpl = document.getElementById(link.getAttribute('data-detail'));
-      if(!tpl) return;
-      modalBox.classList.add('text-mode');
-      modalBox.classList.remove('wide-mode');
-      modalMedia.innerHTML = '';
-      modalMedia.appendChild(tpl.content.cloneNode(true));
-      modal.classList.add('open');
-    });
-  });
-
   function closeModal(){
     modal.classList.remove('open');
-    modalBox.classList.remove('text-mode');
     modalBox.classList.remove('wide-mode');
     modalMedia.innerHTML = '';
   }
@@ -901,6 +973,5 @@
   modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 </script>
-
 </body>
 </html>
