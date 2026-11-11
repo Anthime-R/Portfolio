@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthime Roux — Freelance Unity Developer, France &amp; Frankfurt</title>
+<meta name="description" content="Freelance Unity developer based in France, open to missions in France and the Frankfurt area. Specializing in VR/XR, production tooling and technical art.">
+<meta name="theme-color" content="#0A0E13">
+<link rel="canonical" href="https://anthimerouxportfolio.netlify.app/">
+<link rel="alternate" hreflang="en" href="https://anthimerouxportfolio.netlify.app/">
+<link rel="alternate" hreflang="fr" href="https://anthimerouxportfolio.netlify.app/fr/">
+<link rel="alternate" hreflang="x-default" href="https://anthimerouxportfolio.netlify.app/">
+
+<!-- Share preview (LinkedIn, Slack, messaging apps…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anthime Roux — Portfolio">
+<meta property="og:title" content="Anthime Roux — Freelance Unity Developer">
+<meta property="og:description" content="Unity developer working across VR/XR, production tooling and technical art. Open to freelance missions in France and the Frankfurt area.">
+<meta property="og:url" content="https://anthimerouxportfolio.netlify.app/">
+<meta property="og:image" content="https://anthimerouxportfolio.netlify.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Anthime Roux — Freelance Unity developer: VR/XR, production tooling, technical art">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthime Roux — Freelance Unity Developer">
+<meta name="twitter:description" content="Unity developer working across VR/XR, production tooling and technical art.">
+<meta name="twitter:image" content="https://anthimerouxportfolio.netlify.app/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Self-hosted fonts (no third-party requests) -->
+<link rel="preload" href="fonts/saira-latin-200-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anthime Roux",
+  "jobTitle": "Freelance Unity Developer",
+  "url": "https://anthimerouxportfolio.netlify.app/",
+  "image": "https://anthimerouxportfolio.netlify.app/assets/og-image.png",
+  "address": { "@type": "PostalAddress", "addressLocality": "Montrouge", "addressCountry": "FR" },
+  "knowsAbout": ["Unity", "C#", "VR/XR", "Technical art", "HLSL", "ShaderGraph", "Editor tooling", "Godot", "Blender"],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "RUBIKA" },
+    { "@type": "CollegeOrUniversity", "name": "LISAA Paris" }
+  ]
+}
+</script>
+<script>
+  // Flag JS early so reveal states only apply when scripts can undo them
+  document.documentElement.classList.add('js');
+  // If a .webp file is missing, fall back to the .jpg with the same name
+  document.addEventListener('error', (e) => {
+    const t = e.target;
+    if (t && t.tagName === 'IMG' && /\.webp$/.test(t.src) && !t.dataset.fb) {
+      t.dataset.fb = '1';
+      t.src = t.src.replace(/\.webp$/, '.jpg');
+    }
+  }, true);
+</script>
+<style>
+  @font-face{font-family:'Saira'; font-weight:200; font-style:normal; font-display:swap; src:url('fonts/saira-latin-200-normal.woff2') format('woff2');}
+  @font-face{font-family:'Saira'; font-weight:300; font-style:normal; font-display:swap; src:url('fonts/saira-latin-300-normal.woff2') format('woff2');}
+  @font-face{font-family:'Saira'; font-weight:400; font-style:normal; font-display:swap; src:url('fonts/saira-latin-400-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow Condensed'; font-weight:500; font-style:normal; font-display:swap; src:url('fonts/barlow-condensed-latin-500-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow Condensed'; font-weight:600; font-style:normal; font-display:swap; src:url('fonts/barlow-condensed-latin-600-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow Condensed'; font-weight:700; font-style:normal; font-display:swap; src:url('fonts/barlow-condensed-latin-700-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow'; font-weight:400; font-style:normal; font-display:swap; src:url('fonts/barlow-latin-400-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow'; font-weight:500; font-style:normal; font-display:swap; src:url('fonts/barlow-latin-500-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow'; font-weight:600; font-style:normal; font-display:swap; src:url('fonts/barlow-latin-600-normal.woff2') format('woff2');}
+
+  :root{
+    --bg:#0A0E13;
+    --panel:#10161D;
+    --panel-2:#0D1218;
+    --line:#1E2731;
+    --line-2:#2B3644;
+    --ink:#E9EDEE;
+    --ink-hi:#F2F6F7;
+    --soft:#C5D3D6;
+    --muted:#8FA0A8;
+    --muted-2:#7F8E9C;
+    --grey-ui:#5B6A78;
+
+    /* Palette (flat colours only) */
+    --c1:#078D70; --c1-rgb:7,141,112;
+    --c2:#26CEAA; --c2-rgb:38,206,170;
+    --c3:#98E8C1; --c3-rgb:152,232,193;
+    --c4:#FFFFFF; --c4-rgb:255,255,255;
+    --c5:#7BADE2; --c5-rgb:123,173,226;
+    --c6:#5049CC; --c6-rgb:80,73,204;
+
+    --display:'Saira', sans-serif;
+    --label:'Barlow Condensed', sans-serif;
+    --body:'Barlow', system-ui, sans-serif;
+
+    --maxw:1280px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+
+    /* Default section accent */
+    --acc:var(--c2); --acc-rgb:var(--c2-rgb);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--body); font-size:17px; line-height:1.5;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font:inherit; color:inherit;}
+  ::selection{background:var(--c6); color:#fff;}
+  :focus-visible{outline:2px solid var(--c3); outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  section{scroll-margin-top:96px;}
+
+  /* ---------- Shared decoration ---------- */
+  .dot{display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--acc); flex-shrink:0;}
+
+  /* Corner brackets: <span class="corners"><i></i><i></i><i></i><i></i></span> */
+  .corners{position:absolute; inset:-1px; pointer-events:none; z-index:2; --cs:16px; --cw:2px; --cc:var(--acc);}
+  .corners i{
+    position:absolute; width:var(--cs); height:var(--cs); border:0 solid var(--cc);
+    transition:width .4s var(--ease), height .4s var(--ease), transform .6s var(--ease);
+  }
+  .corners i:nth-child(1){left:0; top:0; border-left-width:var(--cw); border-top-width:var(--cw); transform-origin:0 0;}
+  .corners i:nth-child(2){right:0; top:0; border-right-width:var(--cw); border-top-width:var(--cw); transform-origin:100% 0;}
+  .corners i:nth-child(3){left:0; bottom:0; border-left-width:var(--cw); border-bottom-width:var(--cw); transform-origin:0 100%;}
+  .corners i:nth-child(4){right:0; bottom:0; border-right-width:var(--cw); border-bottom-width:var(--cw); transform-origin:100% 100%;}
+  .corners--thin{--cw:1px;}
+  .corners--grey{--cc:var(--muted);}
+
+  /* Dot clusters (built by script) */
+  .dots{display:grid; grid-template-columns:repeat(7,4px); gap:3px;}
+  .dots span{width:4px; height:4px; border-radius:50%; background:#1A222C; transition:background-color .3s ease;}
+  .dots span.on{background:var(--acc);}
+
+  /* ---------- Header ---------- */
+  .site-head{
+    position:sticky; top:0; z-index:50; background:rgba(10,14,19,.94);
+    border-bottom:1px solid var(--line-2); transition:transform .3s var(--ease);
+  }
+  .site-head.is-hidden{transform:translateY(-100%);}
+  .head-grid{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px 44px;
+    padding:20px 0;
+  }
+  .nav{display:flex; gap:32px; font-family:var(--label); font-weight:600; font-size:18px; letter-spacing:.24em; text-transform:uppercase;}
+  .nav--left{justify-content:flex-end;}
+  .nav--right{justify-content:flex-start; align-items:center;}
+  .nav a{color:var(--c2); position:relative; padding:2px 0; transition:color .2s ease;}
+  .nav a:hover{color:var(--c3);}
+  .nav a.navlink::after{
+    content:""; position:absolute; left:0; right:.24em; bottom:-4px; height:1px; background:var(--c3);
+    transform:scaleX(0); transform-origin:left; transition:transform .35s var(--ease);
+  }
+  .nav a.navlink.is-active{color:var(--ink-hi);}
+  .nav a.navlink.is-active::after, .nav a.navlink:hover::after{transform:scaleX(1);}
+  .nav .nav-cta{color:var(--ink); border:1px solid var(--grey-ui); padding:1px 14px; transition:border-color .2s ease, color .2s ease;}
+  .nav .nav-cta:hover, .nav .nav-cta.is-active{border-color:var(--c2); color:var(--c3);}
+  .nav .lang{font-size:14px; letter-spacing:.2em; color:var(--muted); padding-left:16px; border-left:1px solid var(--line-2); transition:color .2s ease;}
+  .nav .lang:hover{color:var(--c3);}
+  .logo{display:flex; align-items:center; gap:14px; font-family:var(--display); font-weight:300; font-size:22px; letter-spacing:.32em; color:var(--ink);}
+  .logo .diam{display:inline-block; width:7px; height:7px; border:1px solid var(--grey-ui); transform:rotate(45deg); transition:transform .5s var(--ease), border-color .3s;}
+  .logo:hover .diam{transform:rotate(225deg); border-color:var(--c2);}
+  .progress{position:absolute; left:0; right:0; bottom:-1px; height:1px; background:var(--c2); transform-origin:0 50%; transform:scaleX(0);}
+
+  @media (max-width:760px){
+    .head-grid{display:flex; flex-wrap:wrap; justify-content:center; padding:12px 0 10px; gap:8px 16px;}
+    .nav .lang{position:absolute; right:16px; top:14px; padding-left:0; border-left:0; font-size:13px;}
+    .logo{order:-1; flex-basis:100%; justify-content:center; font-size:18px;}
+    .nav{font-size:14px; gap:16px; letter-spacing:.14em;}
+    .nav a.navlink::after{right:.14em;}
+  }
+  @media (max-width:400px){
+    .head-grid{gap:8px 12px;}
+    .nav{font-size:13px; gap:12px; letter-spacing:.1em;}
+    .nav .nav-cta{padding:1px 8px;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:44px 0 72px;}
+  .ticks{display:flex; justify-content:center; align-items:flex-end; gap:3px; height:22px;}
+  .ticks span{width:2px; background:var(--line-2); transform-origin:bottom; }
+  .hero-frame{position:relative; margin-top:28px; padding:64px 56px 52px; text-align:center;}
+  .hero-frame .corners{--cs:26px; --cw:1px; --cc:var(--muted);}
+  .cross{position:absolute; left:50%; width:16px; height:16px; margin-left:-8px; font:300 16px/16px var(--display); color:var(--grey-ui); text-align:center;}
+  .cross--top{top:-8px;} .cross--bottom{bottom:-8px;}
+  .vlabel{
+    position:absolute; top:50%; writing-mode:vertical-rl; font-family:var(--label); font-weight:600; font-size:12px;
+    letter-spacing:.42em; text-transform:uppercase; color:#3E4C5C; white-space:nowrap;
+  }
+  .vlabel--left{left:14px; transform:translateY(-50%) rotate(180deg);}
+  .vlabel--right{right:14px; transform:translateY(-50%);}
+  .eyebrow{display:flex; align-items:center; justify-content:center; gap:14px; font-family:var(--label); font-weight:600; font-size:16px; letter-spacing:.36em; text-transform:uppercase; color:var(--muted);}
+  .eyebrow .rule{width:40px; height:1px; background:var(--line-2); flex-shrink:0;}
+  .hero-name{
+    margin:22px 0 0; font-family:var(--display); font-weight:200; font-size:clamp(44px, 9.4vw, 112px);
+    line-height:1; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-hi);
+    margin-right:-.16em; /* optically recentre the tracked text */
+  }
+  .hero-name .word{display:inline-block; white-space:nowrap;}
+  .hero-name .ch{display:inline-block;}
+  .hero-dots{margin:30px auto 0; display:grid; grid-template-columns:repeat(15,5px); gap:5px; justify-content:center;}
+  .hero-dots span{width:5px; height:5px; border-radius:50%; background:#1A222C;}
+  .modules{margin-top:44px; display:flex; flex-wrap:wrap; gap:20px; text-align:left;}
+  .module{flex:1 1 280px; min-width:0; position:relative; padding:22px 24px 24px; background:rgba(var(--acc-rgb),.05);}
+  .module .corners{--cs:12px; --cw:1px;}
+  .module-label{display:flex; align-items:center; gap:8px; font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.3em; text-transform:uppercase; color:var(--acc);}
+  .module--violet .module-label{color:#9C98EA;}
+  .module p{margin:12px 0 0; font-size:16.5px; color:var(--soft);}
+  .module .focus{font-family:var(--display); font-weight:300; font-size:22px; line-height:1.3; color:var(--ink);}
+  .module .focus em{font-style:normal; color:var(--c3);}
+  .module b{color:var(--ink); font-weight:600;}
+  .module a{color:var(--c3); white-space:nowrap;}
+  .module a:hover{text-decoration:underline;}
+  .acc-c1{--acc:var(--c1); --acc-rgb:var(--c1-rgb); --acc-ink:#10A383;}
+  .acc-c2{--acc:var(--c2); --acc-rgb:var(--c2-rgb);}
+  .acc-c3{--acc:var(--c3); --acc-rgb:var(--c3-rgb);}
+  .acc-c4{--acc:var(--c4); --acc-rgb:var(--c4-rgb);}
+  .acc-c5{--acc:var(--c5); --acc-rgb:var(--c5-rgb);}
+  .acc-c6{--acc:var(--c6); --acc-rgb:var(--c6-rgb);}
+
+  @media (max-width:760px){
+    .hero{padding:28px 0 56px;}
+    .hero-frame{padding:44px 18px 36px;}
+    .vlabel{display:none;}
+    .eyebrow{font-size:13px; letter-spacing:.22em; gap:10px;}
+    .eyebrow .rule{width:18px;}
+    .hero-name{letter-spacing:.08em; margin-right:-.08em;}
+    .module .focus{font-size:20px;}
+  }
+
+  /* ---------- Section heads ---------- */
+  .section{padding:40px 0 80px;}
+  .sh{display:flex; flex-direction:column; align-items:center; margin-bottom:44px;}
+  .sh-row{display:flex; align-items:center; gap:18px; width:100%;}
+  .sh-line{flex:1 1 0; height:1px; background:var(--line);}
+  .sh-line--l{transform-origin:right;} .sh-line--r{transform-origin:left;}
+  .sh h2{--ls:.24em; margin:0; font-family:var(--display); font-weight:300; font-size:clamp(26px, 4.6vw, 44px); line-height:1; letter-spacing:var(--ls); text-transform:uppercase; text-align:center; margin-right:calc(-1 * var(--ls));}
+  .chip{
+    margin-top:16px; display:inline-flex; align-items:center; gap:10px;
+    border:1px solid rgba(var(--acc-rgb),.45); background:rgba(var(--acc-rgb),.07);
+    font-family:var(--label); font-weight:600; font-size:15px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--acc-ink, var(--acc)); padding:3px 14px; text-align:center;
+  }
+  @media (max-width:560px){
+    .sh-row{gap:10px;}
+    .sh .dots{display:none;}
+    .sh h2{--ls:.14em;}
+    .chip{font-size:13px; letter-spacing:.18em;}
+  }
+
+  /* ---------- Media (buttons open the modal) ---------- */
+  .media{
+    position:relative; display:block; width:100%; padding:0; border:0; background:#0A0E13; cursor:pointer; overflow:hidden;
+  }
+  .media img{width:100%; aspect-ratio:16/9; object-fit:cover; transition:transform .7s var(--ease);}
+  .media--43 img{aspect-ratio:4/3;}
+  .media:hover img{transform:scale(1.03);}
+  .play{
+    position:absolute; left:50%; top:50%; width:52px; height:52px; margin:-26px 0 0 -26px;
+    display:flex; align-items:center; justify-content:center; background:#0A0E13; color:var(--ink);
+    clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);
+    transition:transform .35s var(--ease), background-color .25s ease;
+  }
+  .play::before{
+    content:""; position:absolute; inset:0; background:var(--ink);
+    clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%,0 30%,1px 30.4%,1px 69.6%,30.4% calc(100% - 1px),69.6% calc(100% - 1px),calc(100% - 1px) 69.6%,calc(100% - 1px) 30.4%,69.6% 1px,30.4% 1px,1px 30.4%,0 30%);
+  }
+  .play svg{position:relative; width:18px; height:18px; margin-left:2px; fill:var(--ink);}
+  .media:hover .play{transform:scale(1.12); background:rgba(var(--c2-rgb),.25);}
+  .media-ph{
+    width:100%; aspect-ratio:16/9; background:#10161D; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:16px; font-family:var(--label); font-weight:600; font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2);
+  }
+  .frame{position:relative; border:1px solid var(--line-2); padding:6px;}
+  .badge{
+    position:absolute; left:12px; bottom:12px; z-index:1; display:flex; align-items:center; gap:8px;
+    background:#0A0E13; border:1px solid var(--line-2); font-family:var(--label); font-weight:600; font-size:15px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--ink); padding:3px 12px; pointer-events:none;
+  }
+
+  /* ---------- Project rows (work) ---------- */
+  .proj{position:relative; display:flex; flex-wrap:wrap; background:var(--panel); border:1px solid var(--line); transition:border-color .3s ease;}
+  .proj:hover{border-color:var(--line-2);}
+  .proj:hover > .corners i{width:26px; height:26px;}
+  .proj-media{flex:1 1 440px; min-width:0; align-self:flex-start; padding:14px;}
+  .proj-body{flex:1 1 380px; min-width:0; display:flex; flex-direction:column; padding:14px 14px 0 0;}
+  .titlebar{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 16px;
+    background:rgba(var(--acc-rgb),.18); border-left:3px solid var(--acc); color:var(--ink-hi); padding:9px 20px;
+  }
+  .titlebar h3{margin:0; font-family:var(--label); font-weight:700; font-size:26px; letter-spacing:.1em; text-transform:uppercase; line-height:1.1;}
+  .titlebar .meta{font-family:var(--label); font-weight:600; font-size:15px; letter-spacing:.18em; text-transform:uppercase; color:var(--c2);}
+  .proj-text{padding:18px 12px 22px; display:flex; flex-direction:column; gap:14px;}
+  .proj-text > p{margin:0; font-size:16.5px; color:var(--soft);}
+  .proj-text > p b{color:var(--ink); font-weight:600;}
+  .kv{display:flex; flex-direction:column; border-top:1px solid var(--line); margin:0; padding:0; list-style:none;}
+  .kv li{display:flex; align-items:center; gap:12px; padding:6px 0; border-bottom:1px solid var(--line);}
+  .kv .k{flex:0 0 76px; font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted-2);}
+  .kv .v{font-family:var(--label); font-weight:600; font-size:17px; letter-spacing:.1em; text-transform:uppercase;}
+  .proj-bd{flex:1 1 100%; min-width:0; padding:0 26px 26px;}
+  .proj--feat{margin-bottom:28px;}
+  .proj--feat .titlebar h3{font-size:30px;}
+  .proj--feat .proj-text > p{font-size:17.5px;}
+  .proj-list{display:flex; flex-direction:column; gap:28px;}
+  @media (max-width:860px){
+    .proj-body{padding:0 14px;}
+    .proj-text{padding:16px 4px 20px;}
+    .proj-bd{padding:0 18px 22px;}
+    .titlebar h3, .proj--feat .titlebar h3{font-size:23px;}
+  }
+
+  /* ---------- Breakdown ---------- */
+  .bd summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:12px;
+    background:rgba(var(--c2-rgb),.08); border:1px solid var(--c2); color:var(--c3);
+    font-family:var(--label); font-weight:700; font-size:16px; letter-spacing:.22em; text-transform:uppercase; padding:5px 18px;
+    transition:background-color .25s ease;
+  }
+  .bd summary::-webkit-details-marker{display:none;}
+  .bd summary::before{content:"▸"; display:inline-block; transition:transform .3s var(--ease);}
+  .bd[open] summary::before{transform:rotate(90deg);}
+  .bd summary:hover{background:rgba(var(--c2-rgb),.18);}
+  .bd-body{margin-top:18px; display:flex; flex-direction:column; gap:16px;}
+  .bd-body > :nth-child(2){--bd:.08s;} .bd-body > :nth-child(3){--bd:.16s;} .bd-body > :nth-child(4){--bd:.24s;}
+  .bd[open] .bd-block > .corners{animation:unfold .3s var(--ease) var(--bd, 0s) both, blink .24s steps(1,end) calc(var(--bd, 0s) + .3s) 1;}
+  .bd[open] .bd-block > :not(.corners){animation:flickerIn .3s linear calc(var(--bd, 0s) + .38s) both;}
+  .bd[open] .bd-block{animation:panelIn .25s ease calc(var(--bd, 0s) + .35s) backwards;}
+  .bd-block{position:relative; border:1px solid var(--line); background:var(--bg);}
+  .bd-block .corners{--cs:10px; --cw:1px; --cc:var(--muted);}
+  .bd-block h4{
+    margin:0; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--line); background:rgba(var(--c2-rgb),.06);
+    padding:8px 16px; font-family:var(--label); font-weight:600; font-size:16px; letter-spacing:.22em; text-transform:uppercase; color:var(--c3);
+  }
+  .bd-block h4 .dot{background:var(--c2);}
+  .bd-block h4 .dot + .dot{background:var(--line-2);}
+  .bd-inner{padding:14px 18px 16px;}
+  .bd-sub{margin:0 0 10px; font-size:15px; color:var(--muted);}
+  .bd ul{margin:0; padding:0 0 0 18px; display:flex; flex-direction:column; gap:9px;}
+  .bd li{font-size:15px; line-height:1.5; color:#B8C5C9;}
+  .bd li b{font-family:var(--label); font-weight:700; font-size:17px; letter-spacing:.05em; color:var(--ink);}
+  .bd code{font-family:var(--label); font-size:15.5px; color:var(--c3); background:rgba(var(--c2-rgb),.10); padding:0 4px;}
+
+  /* ---------- Student cards ---------- */
+  .stu-grid{display:flex; flex-wrap:wrap; gap:24px;}
+  .stu{flex:1 1 250px; min-width:0; max-width:100%; align-self:flex-start; position:relative; background:var(--panel); border:1px solid var(--line); display:flex; flex-direction:column;}
+  .stu .corners{--cs:12px;}
+  .stu:hover > .corners i{width:22px; height:22px;}
+  .stu-media{padding:10px;}
+  .stu-media .frame{padding:5px;}
+  .stu-media .badge{left:10px; bottom:10px; font-size:14px; padding:1px 10px;}
+  .stu-title{margin:0 10px; background:rgba(var(--acc-rgb),.13); border-left:3px solid var(--acc); color:var(--ink-hi); padding:7px 14px; font-family:var(--label); font-weight:700; font-size:21px; letter-spacing:.1em; text-transform:uppercase; line-height:1.15;}
+  .stu-body{padding:14px 16px 20px; display:flex; flex-direction:column; gap:10px;}
+  .stu-tags{display:flex; flex-wrap:wrap; gap:4px 14px; font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);}
+  .stu-tags span{display:inline-flex; align-items:center; gap:7px;}
+  .stu-tags .dot{width:4px; height:4px;}
+  .stu-body > p{margin:0; font-size:15.5px; color:var(--soft);}
+  .stu-link{font-family:var(--label); font-weight:700; font-size:16px; letter-spacing:.18em; text-transform:uppercase; color:var(--c3);}
+  .stu-link:hover{text-decoration:underline;}
+
+  /* ---------- Toolset (kept from the IW draft) ---------- */
+  .tools{display:flex; flex-wrap:wrap; gap:24px;}
+  .tool{position:relative; flex:1 1 250px; min-width:0; background:#0F151C; border:1px solid var(--line-2); padding:26px 24px 30px; text-align:center; transition:border-color .3s ease, transform .4s var(--ease);}
+  .tool:hover{border-color:rgba(var(--c3-rgb),.5); transform:translateY(-3px);}
+  .tool-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:20px;}
+  .tool-head .oct{display:inline-block; width:12px; height:12px; background:var(--c3); clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%); transition:transform .6s var(--ease);}
+  .tool:hover .oct{transform:rotate(180deg);}
+  .tool-head span:last-child{font-family:var(--label); font-weight:600; font-size:17px; letter-spacing:.22em; text-transform:uppercase; color:var(--c3);}
+  .tool ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .tool li{font-family:var(--label); font-weight:600; font-size:22px; letter-spacing:.05em; line-height:1.2;}
+  .tool li span{display:block; margin-top:2px; font-family:var(--body); font-weight:400; font-size:14px; letter-spacing:.02em; color:var(--muted);}
+
+  /* ---------- Timeline tables ---------- */
+  .rows{position:relative; border:1px solid var(--line);}
+  .row{display:flex; flex-wrap:wrap; align-items:center; gap:6px 28px; padding:16px 24px; border-bottom:1px solid var(--line); transition:background-color .25s ease;}
+  .row:nth-child(odd of .row){background:var(--panel);}
+  .row:nth-child(even of .row){background:var(--panel-2);}
+  .row:hover{background:rgba(var(--acc-rgb),.06);}
+  .row-when{flex:0 0 260px; display:flex; align-items:center; gap:12px; font-family:var(--label); font-weight:600; font-size:18px; letter-spacing:.12em; white-space:nowrap; text-transform:uppercase; color:var(--soft);}
+  .acc-c5 .row-when{color:var(--c5);}
+  .row-what{flex:1 1 300px; min-width:0;}
+  .row-role{margin:0; font-family:var(--display); font-weight:300; font-size:23px; letter-spacing:.08em; text-transform:uppercase; line-height:1.2; color:var(--ink-hi);}
+  .row-org{margin:2px 0 0; color:var(--muted);}
+  @media (max-width:560px){
+    .row{padding:14px 16px;}
+    .row-when{flex-basis:100%; font-size:16px;}
+    .row-role{font-size:19px;}
+  }
+  .cv{margin-top:36px; text-align:center;}
+  .btn{
+    display:inline-flex; align-items:center; gap:12px; border:1px solid var(--acc); background:rgba(var(--acc-rgb),.08); color:var(--ink);
+    font-family:var(--label); font-weight:600; font-size:18px; letter-spacing:.24em; text-transform:uppercase; padding:11px 30px;
+    transition:background-color .25s ease;
+  }
+  .btn:hover{background:rgba(var(--acc-rgb),.2);}
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{display:flex; justify-content:center;}
+  .contact{width:100%; max-width:960px; position:relative; background:var(--panel); border:1px solid var(--line); text-align:center;}
+  .contact .corners{--cs:22px;}
+  .contact-bar{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:6px 12px;
+    border-bottom:1px solid var(--c6); background:rgba(var(--c6-rgb),.20); color:#D6D4F5;
+    font-family:var(--label); font-weight:600; font-size:15px; letter-spacing:.28em; text-transform:uppercase; padding:10px 26px;
+  }
+  .contact-bar span:first-child{display:inline-flex; align-items:center; gap:10px;}
+  .contact-in{padding:52px 32px 56px;}
+  .contact h2{margin:0; font-family:var(--display); font-weight:200; font-size:clamp(34px, 6.6vw, 72px); line-height:1.05; letter-spacing:.08em; text-transform:uppercase;}
+  .contact .dots{margin:26px auto 0; justify-content:center;}
+  .contact-links{margin-top:30px; display:flex; flex-wrap:wrap; justify-content:center; gap:14px; font-family:var(--label); font-weight:600; font-size:24px; letter-spacing:.1em;}
+  .contact-links a{display:inline-flex; align-items:center; gap:10px; border:1px solid var(--acc); background:rgba(var(--acc-rgb),.08); color:var(--ink); padding:8px 24px; transition:background-color .25s ease, transform .3s var(--ease);}
+  .contact-links a:hover{background:rgba(var(--acc-rgb),.22); transform:translateY(-2px);}
+  .mail-line{margin:18px 0 0; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px 14px; font-family:var(--label); font-weight:500; font-size:19px; letter-spacing:.08em; color:var(--soft);}
+  .copy{background:transparent; border:1px solid var(--line-2); color:var(--muted); font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.22em; text-transform:uppercase; padding:3px 12px; cursor:pointer; transition:border-color .2s ease, color .2s ease;}
+  .copy:hover{border-color:var(--c2); color:var(--c3);}
+  .copy.is-done{border-color:var(--c3); color:var(--c3);}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;}
+  @media (max-width:560px){
+    .contact-bar{justify-content:center; letter-spacing:.16em; font-size:13px; padding:10px 14px;}
+    .contact-in{padding:40px 16px 44px;}
+    .contact-links{font-size:20px;}
+  }
+
+  footer{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding:22px 0 44px; border-top:1px solid var(--line-2);
+    font-family:var(--label); font-weight:600; font-size:15px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted-2);
+  }
+
+  /* ---------- Modal ---------- */
+  .modal{position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(10,14,19,.92);}
+  .modal.open{display:flex; animation:fadeIn .25s ease both;}
+  .modal-box{position:relative; width:100%; max-width:960px; background:var(--panel); border:1px solid var(--line-2); animation:popIn .35s var(--ease) both;}
+  .modal-box .corners{--cc:var(--c2); --cs:20px;}
+  .modal-close{display:block; margin-left:auto; background:none; border:0; color:var(--muted); font-family:var(--label); font-weight:600; font-size:15px; letter-spacing:.24em; padding:12px 18px; cursor:pointer;}
+  .modal-close:hover{color:var(--ink);}
+  .modal-media{aspect-ratio:16/9; width:100%; background:#000;}
+  .modal-media iframe, .modal-media img{width:100%; height:100%; border:0; object-fit:contain;}
+  .modal-box.wide .modal-media{aspect-ratio:auto;}
+  .modal-box.wide .modal-media img{height:auto; max-height:80vh;}
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+  @keyframes popIn{from{opacity:0; transform:translateY(14px) scale(.98);} to{opacity:1; transform:none;}}
+
+  /* =========================================================
+     Animations — only when JS is on; all transform/opacity based
+     ========================================================= */
+  /* Panels: the four corners start stacked in the centre, unfold to the edges, blink, then the content flickers on */
+  @keyframes unfold{0%{inset:50%; opacity:1;} 100%{inset:-1px; opacity:1;}}
+  @keyframes blink{0%{opacity:.15;} 33%{opacity:1;} 66%{opacity:.15;} 100%{opacity:1;}}
+  @keyframes flickerIn{0%{opacity:0;} 12%{opacity:.9;} 22%{opacity:.1;} 34%{opacity:1;} 46%{opacity:.35;} 60%,100%{opacity:1;}}
+  @keyframes panelIn{from{background-color:transparent; border-color:transparent;}}
+
+  .js .reveal{--d:calc(var(--i, 0) * 90ms);}
+  .js .reveal:not(.is-in){background-color:transparent; border-color:transparent;}
+  .js .reveal > .corners{inset:50%; opacity:0;}
+  .js .reveal.is-in > .corners{inset:-1px; opacity:1; animation:unfold .38s var(--ease) var(--d) both, blink .28s steps(1,end) calc(var(--d) + .38s) 1;}
+  .js .reveal > :not(.corners){opacity:0;}
+  .js .reveal.is-in > :not(.corners){opacity:1; animation:flickerIn .32s linear calc(var(--d) + .5s + var(--r, 0) * 40ms) both;}
+  .js .reveal.is-in{animation:panelIn .3s ease calc(var(--d) + .45s) backwards;}
+
+  /* Twinkling status dots */
+  .tw{animation:twinkle var(--t, 4s) ease-in-out var(--td, 0s) infinite;}
+
+  .js .sh .sh-line{transform:scaleX(0); transition:transform .7s var(--ease);}
+  .js .sh.is-in .sh-line{transform:scaleX(1);}
+  .js .sh h2{opacity:0; letter-spacing:.5em; transition:opacity .6s var(--ease), letter-spacing .75s var(--ease);}
+  .js .sh.is-in h2{opacity:1; letter-spacing:var(--ls);}
+  .js .sh .chip{opacity:0; transform:translateY(8px); transition:opacity .4s ease .2s, transform .4s var(--ease) .2s;}
+  .js .sh.is-in .chip{opacity:1; transform:none;}
+  .js .sh .dots span.on{background:#1A222C; transition:background-color .2s ease; transition-delay:calc(var(--k, 0) * 40ms + .15s);}
+  .js .sh.is-in .dots span.on{background:var(--acc);}
+
+  /* Hero intro */
+  .js .ticks span{transform:scaleY(0);}
+  .js .hero.is-in .ticks span{transform:scaleY(1); transition:transform .45s var(--ease); transition-delay:calc(var(--k, 0) * 18ms);}
+  .js .hero-frame > .corners{inset:50%; opacity:0;}
+  .js .hero.is-in .hero-frame > .corners{inset:-1px; opacity:1; animation:unfold .55s var(--ease) .05s both, blink .3s steps(1,end) .6s 1;}
+  .js .hero .cross, .js .hero .vlabel, .js .hero .eyebrow{opacity:0; transition:opacity .6s ease .3s;}
+  .js .hero.is-in .cross, .js .hero.is-in .vlabel, .js .hero.is-in .eyebrow{opacity:1;}
+  .js .hero-name .ch{opacity:0; transform:translateY(.35em); transition:opacity .5s var(--ease), transform .55s var(--ease); transition-delay:calc(var(--k, 0) * 30ms + .15s);}
+  .js .hero.is-in .hero-name .ch{opacity:1; transform:none;}
+  .js .hero-dots span{opacity:0; transition:opacity .3s ease; transition-delay:calc(var(--k, 0) * 18ms + .55s);}
+  .js .hero.is-in .hero-dots span{opacity:1;}
+  @keyframes twinkle{0%,100%{opacity:1; transform:scale(1);} 40%{opacity:.08; transform:scale(.55);} 55%{opacity:.08; transform:scale(.55);} 70%{opacity:1; transform:scale(1.25);} 82%{transform:scale(1);}}
+  @keyframes led{0%,55%{opacity:1;} 56%,100%{opacity:.12;}}
+  .led{animation:led 1.1s linear infinite;}
+  .js .module{--d:calc(var(--i, 0) * 220ms + .7s);}
+  .js .hero:not(.is-in) .module{background-color:transparent;}
+  .js .module > .corners{inset:50%; opacity:0;}
+  .js .hero.is-in .module > .corners{inset:-1px; opacity:1; animation:unfold .38s var(--ease) var(--d) both, blink .28s steps(1,end) calc(var(--d) + .38s) 1;}
+  .js .module > :not(.corners){opacity:0;}
+  .js .hero.is-in .module > :not(.corners){opacity:1; animation:flickerIn .32s linear calc(var(--d) + .5s + var(--r, 0) * 40ms) both;}
+  .js .hero.is-in .module{animation:panelIn .3s ease calc(var(--d) + .45s) backwards;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *, *::before, *::after{animation:none !important; transition:none !important;}
+    .js .reveal, .js .reveal > *, .js .module > *, .js .sh h2, .js .sh .chip, .js .hero-name .ch, .js .hero-dots span,
+    .js .hero .cross, .js .hero .vlabel, .js .hero .eyebrow{opacity:1 !important; transform:none !important;}
+    .js .reveal > .corners, .js .module > .corners, .js .hero-frame > .corners{inset:-1px !important;}
+    .js .sh .dots span.on{background:var(--acc);}
+    .js .sh .sh-line, .js .ticks span, .js .corners i{transform:none !important;}
+    .js .sh h2{letter-spacing:var(--ls);}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-grid">
+    <nav class="nav nav--left" aria-label="Primary, first half">
+      <a class="navlink" href="#work" data-nav="work">Work</a>
+      <a class="navlink" href="#toolset" data-nav="toolset">Toolset</a>
+    </nav>
+    <a href="#top" class="logo" aria-label="Anthime Roux, back to top">
+      <span class="diam" aria-hidden="true"></span><span>A·ROUX</span><span class="diam" aria-hidden="true"></span>
+    </a>
+    <nav class="nav nav--right" aria-label="Primary, second half">
+      <a class="navlink" href="#experience" data-nav="experience">Experience</a>
+      <a class="nav-cta" href="#contact" data-nav="contact">Contact</a>
+      <a class="lang" href="fr/" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="ticks" data-ticks aria-hidden="true"></div>
+
+      <div class="hero-frame">
+        <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="cross cross--top" aria-hidden="true">+</span>
+        <span class="cross cross--bottom" aria-hidden="true">+</span>
+        <span class="vlabel vlabel--left" aria-hidden="true">Unity developer · Montrouge</span>
+        <span class="vlabel vlabel--right" aria-hidden="true">France · Frankfurt area</span>
+
+        <div class="eyebrow"><span class="rule" aria-hidden="true"></span><span data-scramble>Freelance · Unity · C# · Technical Art</span><span class="rule" aria-hidden="true"></span></div>
+        <h1 class="hero-name" data-split>Anthime Roux</h1>
+        <div class="hero-dots" data-dots="hero" aria-hidden="true"></div>
+
+        <div class="modules">
+          <div class="module acc-c2" style="--i:1">
+            <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <div class="module-label"><span class="dot"></span>Focus</div>
+            <p class="focus">Gameplay, tools, technical art — I end up <em>going deep on all three.</em></p>
+          </div>
+          <div class="module acc-c5" style="--i:0">
+            <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <div class="module-label"><span class="dot"></span>Availability</div>
+            <p>Unity developer working across VR/XR, production tooling and tech art. Currently open to freelance missions — short or long — in France and Germany (Frankfurt area).</p>
+          </div>
+          <div class="module module--violet acc-c6" style="--i:1">
+            <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <div class="module-label"><span class="dot"></span>Training &amp; coaching</div>
+            <p>Also open to <b>Unity training &amp; coaching</b> missions — I've taught Unity to prep-school students (LessonSharing) and led game-dev workshops for kids and teens (Tech Kids Academy, Telligo). <a href="#experience">See teaching experience →</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 WORK -->
+  <section class="section acc-c1" id="work">
+    <div class="wrap">
+      <div class="sh">
+        <div class="sh-row">
+          <div class="sh-line sh-line--l"></div>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <h2>Selected work</h2>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <div class="sh-line sh-line--r"></div>
+        </div>
+        <span class="chip"><span class="dot"></span>01 · Professional &amp; client work</span>
+      </div>
+
+      <!-- Featured: VR Suite -->
+      <article class="proj proj--feat reveal">
+        <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="proj-media">
+          <div class="frame">
+            <button class="media media--43" data-img="assets/vr-suite.webp" data-wide aria-label="View VR Suite image">
+              <img src="assets/vr-suite.webp" alt="VR Suite — hand interaction system and OpenXR device picker tool">
+            </button>
+            <span class="badge"><span class="dot"></span>Featured project</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="titlebar"><h3>VR Suite — LMC2</h3><span class="meta">2025–Now</span></div>
+          <div class="proj-text">
+            <p>An in-house VR package built to give the lab a generic, reusable solution rather than one-off builds — configurable editor tooling and a modular runtime, adapted to the needs of different experimental protocols.</p>
+            <ul class="kv">
+              <li><span class="dot"></span><span class="k">Lab</span><span class="v">LMC2</span></li>
+              <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+              <li><span class="dot"></span><span class="k">Role</span><span class="v">Tools &amp; runtime architecture</span></li>
+              <li><span class="dot"></span><span class="k">Year</span><span class="v">2025–Now</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="proj-bd">
+          <details class="bd">
+            <summary>Technical breakdown</summary>
+            <div class="bd-body">
+              <div class="bd-block">
+                <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <h4><span class="dot"></span><span class="dot"></span>Editor Tooling</h4>
+                <div class="bd-inner"><ul>
+                  <li><b>CC4 avatar setup</b> — a custom editor window automates the full avatar workflow: configuring the XR rig, setting up the humanoid rig, and applying <code>VRIK</code> with Full Body (trackers), Hands-Only, or No-Visual embodiment modes, including headset-specific offsets.</li>
+                  <li><b>Calibration</b> — dedicated calibration logic accurately maps the physical player onto the virtual avatar.</li>
+                  <li><b>OpenXR device picker</b> — editor tool to target Meta, Pico or Vive: updates OpenXR settings, enables the required interaction profiles and switches the <code>BuildTarget</code> in one click.</li>
+                  <li><b>Asset bundle pipeline</b> — automates creation, tagging, build and copy of avatar bundles into the final build's <code>StreamingAssets</code> folder.</li>
+                  <li><b>Custom components</b> — a custom inspector for interactable objects, handling grab/release actions.</li>
+                </ul></div>
+              </div>
+              <div class="bd-block">
+                <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <h4><span class="dot"></span><span class="dot"></span>Runtime Architecture</h4>
+                <div class="bd-inner">
+                  <p class="bd-sub">Modular runtime handling locomotion, interaction and user embodiment for cognitive-science experiments.</p>
+                  <ul>
+                    <li><b>Dynamic loading</b> — asynchronous avatar instantiation from local or remote <code>AssetBundles</code> via <code>UnityWebRequest</code> and <code>LoadFromFileAsync</code>, rather than hardcoding avatars into the scene — scalable for setups that need to swap characters.</li>
+                    <li><b>Procedural hand animation</b> — independent per-finger flexion driven by user input, with the animation dynamically halted on collision detection (<code>Physics.CheckSphere</code>) on the interaction layer.</li>
+                    <li><b>IK &amp; embodiment</b> — <code>VRIK</code> (FinalIK) integration supporting FullBody (with trackers) and HandsOnly modes, including an artificial delay parameter on body-tracker following for disembodiment-study protocols.</li>
+                    <li><b>Locomotion &amp; comfort</b> — Strategy pattern to swap movement logic (joystick, physical walking, "Wii Sports"-style). Dynamic vignette (tunneling) auto-activates above configurable linear/angular speed thresholds.</li>
+                    <li><b>Interaction system</b> — grabbable-object detection via <code>OverlapSphere</code> by type (Touchable, OneShot, Carryable), coupled to a cross-platform haptic controller generating complex patterns (ramp-up, double-tap).</li>
+                    <li><b>Input assignment</b> — Unity's Input System dynamically binds controllers and Vive trackers (waist, feet) to the <code>CameraRig</code> at initialization.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="bd-block">
+                <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <h4><span class="dot"></span><span class="dot"></span>Project Architecture</h4>
+                <div class="bd-inner"><ul>
+                  <li><b>Assembly separation</b> — runtime and editor code split into separate assemblies, keeping dependencies clean and build times fast.</li>
+                  <li><b>Hardware profiles</b> — ScriptableObjects manage different VR hardware profiles and tracker offsets, so new headsets or trackers can be supported without touching core code.</li>
+                </ul></div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <div class="proj-list">
+
+        <!-- Mimosa -->
+        <article class="proj reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="proj-media">
+            <div class="frame">
+              <button class="media" data-img="assets/mimosa.webp" aria-label="View Mimosa illustration">
+                <img src="assets/mimosa.webp" alt="Illustration of a gallery floor-plan simulation, as generated by a layout tool (not client data)" loading="lazy">
+              </button>
+              <span class="badge"><span class="dot"></span>02 · Illustration</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="titlebar"><h3>Mimosa</h3><span class="meta">2025–Now</span></div>
+            <div class="proj-text">
+              <p>A standalone macOS application built for <b>Galerie Perrotin</b> — one of the leading international contemporary art galleries — generating 3D simulations of gallery spaces for exhibitions and art fairs. Ongoing freelance engagement, maintaining and extending the tool. Screenshots are limited here due to client confidentiality.</p>
+              <ul class="kv">
+                <li><span class="dot"></span><span class="k">Client</span><span class="v">Galerie Perrotin</span></li>
+                <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+                <li><span class="dot"></span><span class="k">Role</span><span class="v">Solo dev</span></li>
+                <li><span class="dot"></span><span class="k">Year</span><span class="v">2025–Now</span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Maison virtuelle -->
+        <article class="proj reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="proj-media">
+            <div class="frame">
+              <button class="media" data-video="https://www.youtube.com/embed/cJMK9T7eGHE" aria-label="Play Maison virtuelle de l'adolescent video">
+                <img src="assets/maison-virtuelle.webp" alt="Maison virtuelle de l'adolescent screenshot" loading="lazy">
+                <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+              </button>
+              <span class="badge"><span class="dot"></span>03</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="titlebar"><h3>Maison virtuelle de l'adolescent</h3><span class="meta">2024–Now</span></div>
+            <div class="proj-text">
+              <p>A therapeutic, Habbo-inspired virtual space built for a cognitive-science research lab, with its own dedicated multiplayer architecture (Netcode for GameObjects), PlayFab backend and spatialized Vivox voice chat.</p>
+              <ul class="kv">
+                <li><span class="dot"></span><span class="k">Lab</span><span class="v">LMC2</span></li>
+                <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+                <li><span class="dot"></span><span class="k">Role</span><span class="v">Unity dev</span></li>
+                <li><span class="dot"></span><span class="k">Year</span><span class="v">2024–Now</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-bd">
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Network Architecture (NGO)</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Cross-scene persistence</b> — player entity persistence across scenes, handled through a runtime database.</li>
+                    <li><b>Secured connections</b> — custom connection approval via a version-payload comparison check.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Backend Services (PlayFab)</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Custom authentication</b> — email/password auth with one-time code generation and delivery (2FA).</li>
+                    <li><b>Data sync</b> — asynchronous saving and syncing of player data, including modular assembly of avatar meshes.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Communications (Vivox)</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Spatial voice chat</b> — spatialized (3D) voice chat, coupled to the player's camera position.</li>
+                    <li><b>Text chat</b> — text chat system with an adaptive UI and message history.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Multiplayer Mechanics</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Instanced housing</b> — apartment ownership logic (<code>NetworkObject.ChangeOwnership</code>) with a "knock on the door" interaction requiring tenant authorization, or forced entry for admins.</li>
+                    <li><b>Prop Hunt</b> — networked mini-game managing a full match lifecycle: prep phase, networked timers, and voice-channel switching for eliminated players.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ExpressionCC4 -->
+        <article class="proj reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="proj-media">
+            <div class="frame">
+              <button class="media" data-img="assets/expressioncc4.webp" data-wide aria-label="View ExpressionCC4 image">
+                <img src="assets/expressioncc4.webp" alt="ExpressionCC4 — four facial expressions on a CC4 avatar" loading="lazy">
+              </button>
+              <span class="badge"><span class="dot"></span>04</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="titlebar"><h3>ExpressionCC4</h3><span class="meta">2025–Now</span></div>
+            <div class="proj-text">
+              <p>A facial expression and lip-sync toolkit for CC4 avatars — capture and reuse blend-shape expressions, transition smoothly between them at runtime, and auto-rig lip sync from a single editor window.</p>
+              <ul class="kv">
+                <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+                <li><span class="dot"></span><span class="k">Role</span><span class="v">Tools &amp; Technical Art (solo)</span></li>
+                <li><span class="dot"></span><span class="k">Year</span><span class="v">2025–Now</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-bd">
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Expression Capture &amp; Playback</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Expression capture tool</b> — a custom editor window reads every blend shape weight on a selected renderer and saves them as a reusable expression asset, so expressions can be authored once and reused across avatars.</li>
+                    <li><b>Smooth transitions</b> — expressions blend at runtime by interpolating <code>SetBlendShapeWeight</code> values, with adjustable intensity and duration rather than snapping instantly.</li>
+                    <li><b>Editor-side testing</b> — a custom inspector adds buttons and sliders directly on the component to preview and test transitions without writing test code.</li>
+                    <li><b>Procedural blink system</b> — an independent coroutine drives natural, randomized blinking (interval and duration both randomized) on its own timer, layered on top of any active expression.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Automated Lip-Sync Rigging</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>One-click setup</b> — an editor window auto-configures lip sync on a target CC4 avatar: matches each phoneme to its corresponding viseme blend shape by name (via <code>GetBlendShapeIndex</code>), and creates a dedicated lip-sync controller object with the required components already wired together.</li>
+                    <li><b>Built on uLipSync</b> — integrates the uLipSync package for real-time phoneme detection from audio.</li>
+                    <li><b>Guided setup</b> — the tool prompts the remaining manual steps needed to get lip sync working correctly (assigning voice profiles, adjusting the humanoid rig configuration).</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Blast -->
+        <article class="proj reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="proj-media">
+            <div class="frame">
+              <button class="media" data-video="https://www.youtube.com/embed/C9FK8YFq6iU" aria-label="Play Blast gameplay video">
+                <img src="assets/blast.webp" alt="Blast gameplay screenshot — arena, enemies and HUD" loading="lazy">
+                <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+              </button>
+              <span class="badge"><span class="dot"></span>05</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="titlebar"><h3>Blast</h3><span class="meta">2024</span></div>
+            <div class="proj-text">
+              <p>A mobile twin-stick shooter built solo, focused on a scalable architecture: custom object pooling, ScriptableObject-driven data and events, and a procedural mesh generator that builds the arena walls at runtime.</p>
+              <ul class="kv">
+                <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+                <li><span class="dot"></span><span class="k">Role</span><span class="v">Solo dev (code + shaders)</span></li>
+                <li><span class="dot"></span><span class="k">Year</span><span class="v">2024</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-bd">
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Architecture &amp; Patterns</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Custom object pooling</b> — a pooling system for the high volume of concurrent projectiles and enemies, avoiding garbage collection spikes, important on mobile.</li>
+                    <li><b>ScriptableObject-driven data</b> — player, enemy and weapon stats live in ScriptableObjects, decoupling balancing data from logic so values can be tuned without touching code.</li>
+                    <li><b>Decoupled event system</b> — a ScriptableObject-based event architecture keeps components loosely coupled rather than wired directly to each other.</li>
+                    <li><b>Procedural mesh generation</b> — a custom builder computes vertices, miter joints, UVs and normals at runtime to build the arena's wall geometry.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Gameplay Systems</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Modern input handling</b> — Unity's new Input System drives dual-joystick mobile touch controls.</li>
+                    <li><b>Weapon variety</b> — Shotgun, Bouncer (ricocheting bullets), Explosive and a custom SnakeGun, all built on the same flexible weapon system.</li>
+                    <li><b>Enemy AI variety</b> — distinct behaviors (Kamikaze, ShotgunEnemy, Cubsicles, and a multi-part Snake enemy) each demanding a different player strategy.</li>
+                    <li><b>Save data</b> — a persistent progress manager using binary serialization to store level completion and times locally.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Hazel -->
+        <article class="proj reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="proj-media">
+            <div class="frame">
+              <button class="media" data-img="assets/hazel.webp" aria-label="View Hazel image">
+                <img src="assets/hazel.webp" alt="Hazel screenshot" loading="lazy">
+              </button>
+              <span class="badge"><span class="dot"></span>06</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="titlebar"><h3>Hazel</h3><span class="meta">Ongoing</span></div>
+            <div class="proj-text">
+              <p>An ongoing 2D physics-based platformer, built with two other members of the Rewind team. Project lead, in charge of planning — twin-stick object manipulation, a vacuum-based inventory system, and multi-phase boss fights.</p>
+              <ul class="kv">
+                <li><span class="dot"></span><span class="k">Engine</span><span class="v">Unity</span></li>
+                <li><span class="dot"></span><span class="k">Role</span><span class="v">Project lead, planning (team of 3)</span></li>
+                <li><span class="dot"></span><span class="k">Year</span><span class="v">Ongoing</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-bd">
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Core Gameplay &amp; Mechanics</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Twin-stick physics manipulation</b> — aim, grab and throw physics-based objects via mouse or gamepad right-stick, distinguishing small projectiles from heavy environmental objects.</li>
+                    <li><b>Vacuum combat &amp; inventory</b> — sucks up items, stores them in a visual inventory queue, and fires them back out as physics projectiles.</li>
+                    <li><b>Character controller</b> — coyote time, variable jump heights and wall-climbing, driven by custom <code>AnimationCurves</code> for grounded/aerial acceleration and jump forces, plus environmental interactions (ice friction, timed slow/freeze effects).</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Boss AI</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>State-machine boss</b> — a multi-phase boss driven by a randomized state machine (Swoop, Wind, Flash, Feather, Targeted).</li>
+                    <li><b>Varied attack patterns</b> — Flash uses URP 2D lights and line-of-sight raycasts to blind the player, Wind applies continuous physics forces to push them around the arena, and Feather fires a pooled projectile spread via localized rotation.</li>
+                  </ul></div>
+                </div>
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <h4><span class="dot"></span><span class="dot"></span>Architecture &amp; Tooling</h4>
+                  <div class="bd-inner"><ul>
+                    <li><b>Procedural tail animation</b> — forward kinematics animate the tail from velocity, distance constraints and <code>AnimationCurves</code>, with an idle return pose.</li>
+                    <li><b>ScriptableObject event system</b> — a decoupled, ScriptableObject-based architecture for modular, scalable communication between systems.</li>
+                    <li><b>Object pooling</b> — handles heavy instantiation of items, boss projectiles and VFX without GC spikes.</li>
+                    <li><b>Modern Unity stack</b> — new Input System, URP 2D lighting, and DOTween for animation and cinematic sequencing.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 STUDENT PROJECTS -->
+  <section class="section acc-c2" id="student">
+    <div class="wrap">
+      <div class="sh">
+        <div class="sh-row">
+          <div class="sh-line sh-line--l"></div>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <h2>Student projects</h2>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <div class="sh-line sh-line--r"></div>
+        </div>
+        <span class="chip"><span class="dot"></span>02 · Rubika · LISAA · self-directed</span>
+      </div>
+
+      <div class="stu-grid">
+        <article class="stu reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="stu-media"><div class="frame">
+            <button class="media" data-video="https://www.youtube.com/embed/vRyvO_0oKWI" aria-label="Play Rewind trailer">
+              <img src="assets/rewind.webp" alt="Rewind banner" loading="lazy">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <span class="badge"><span class="dot"></span>S1</span>
+          </div></div>
+          <h3 class="stu-title">Rewind</h3>
+          <div class="stu-body">
+            <div class="stu-tags"><span><span class="dot"></span>School · LISAA</span><span><span class="dot"></span>Year · 2019–20</span></div>
+            <p>2.5D platformer/puzzle built around a time-rewind mechanic. Project lead for a 4-person team; programmed core gameplay, produced character &amp; environment art.</p>
+            <a class="stu-link" href="https://squirrel-eating-cardboard.itch.io/rewind" target="_blank" rel="noopener">→ Play on itch.io</a>
+          </div>
+        </article>
+
+        <article class="stu reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="stu-media"><div class="frame">
+            <button class="media" data-video="https://www.youtube.com/embed/Uc2BBYZAGlw" aria-label="Play Hop Around gameplay video">
+              <img src="assets/hop-around.webp" alt="Hop Around banner" loading="lazy">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <span class="badge"><span class="dot"></span>S2</span>
+          </div></div>
+          <h3 class="stu-title">Hop Around</h3>
+          <div class="stu-body">
+            <div class="stu-tags"><span><span class="dot"></span>School · Rubika</span><span><span class="dot"></span>Year · 2021–22</span></div>
+            <p>Android platformer starring a frog with a tongue-grapple mechanic, steered by tilting the device — accelerometer-driven movement was the core of the concept, plus a full C# implementation.</p>
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <div class="bd-inner"><ul>
+                    <li><b>Gyroscope-driven movement</b> — device tilt controls the frog's horizontal movement and turning, the core input driving the whole game.</li>
+                    <li><b>Touch-to-world grapple targeting</b> — touch input combined with screen-to-world raycasting lets players tap a target to latch the tongue onto it.</li>
+                    <li><b>Custom velocity curves</b> — hand-tuned acceleration, deceleration and turning curves replace default rigidbody physics for precise aerial and grounded momentum.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="stu reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="stu-media"><div class="frame">
+            <button class="media" data-video="https://www.youtube.com/embed/MrHmkhW9l0U" aria-label="Play Status: Unknown trailer">
+              <img src="assets/status-unknown.webp" alt="Status: Unknown screenshot" loading="lazy">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            </button>
+            <span class="badge"><span class="dot"></span>S3</span>
+          </div></div>
+          <h3 class="stu-title">Status: Unknown</h3>
+          <div class="stu-body">
+            <div class="stu-tags"><span><span class="dot"></span>School · Rubika</span><span><span class="dot"></span>Year · 2024</span></div>
+            <p>My Master's project at Rubika, a Unity action game built as a team. I worked as gameplay &amp; UI engineer: a custom, highly responsive character controller and a modern UI Toolkit-based interface.</p>
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <div class="bd-inner"><ul>
+                    <li><b>Parallel state machine</b> — a slot-based state system splits movement, aiming and actions into independent slots, so the player can move, aim and fire or reload at the same time.</li>
+                    <li><b>Input buffering</b> — captures and delays inputs during locked animations (melee build-ups, dodges), improving responsiveness in fast combat.</li>
+                    <li><b>UI Toolkit architecture</b> — built on Unity's modern <code>UIDocument</code> / <code>VisualElement</code> system instead of legacy uGUI, including a custom radial-fill element that generates its own mesh instead of relying on sprite masks.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="stu reveal">
+          <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="stu-media"><div class="frame">
+            <button class="media" data-img="assets/i-cant-bear-you.webp" aria-label="View I Can't Bear You image">
+              <img src="assets/i-cant-bear-you.webp" alt="I Can't Bear You screenshot" loading="lazy">
+            </button>
+            <span class="badge"><span class="dot"></span>S4</span>
+          </div></div>
+          <h3 class="stu-title">I Can't Bear You</h3>
+          <div class="stu-body">
+            <div class="stu-tags"><span><span class="dot"></span>Year · 2023</span></div>
+            <p>A systemic stealth-action sandbox: play as a bear crashing an NPC party, driven by a needs-based AI system and a fully interactive, destructible environment.</p>
+            <details class="bd">
+              <summary>Technical breakdown</summary>
+              <div class="bd-body">
+                <div class="bd-block">
+                  <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  <div class="bd-inner"><ul>
+                    <li><b>Needs-driven NPCs</b> — stats (hunger, thirst, bladder) decay over time; once a threshold is crossed, the NPC paths to a relevant point of interest via the <code>NavMesh</code> — food, punch bowls, bathrooms.</li>
+                    <li><b>Crowd awareness</b> — NPCs move between calm, tense and panic (fleeing to exit points), and the player can trigger fear or disturbances that ripple through the crowd.</li>
+                    <li><b>Physics-based throwing</b> — aiming and throwing with trajectory projection, letting players pick up, aim and launch objects.</li>
+                    <li><b>Systemic interactions</b> — a shared interaction framework drives sandbox eliminations: poisoning punch bowls, electrocution, physics-based smashing.</li>
+                  </ul></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TOOLSET -->
+  <section class="section acc-c3" id="toolset">
+    <div class="wrap">
+      <div class="sh">
+        <div class="sh-row">
+          <div class="sh-line sh-line--l"></div>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <h2>Toolset</h2>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <div class="sh-line sh-line--r"></div>
+        </div>
+        <span class="chip"><span class="dot"></span>03 · Engines · Tech art · Pipeline</span>
+      </div>
+      <div class="tools">
+        <div class="tool reveal">
+          <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="tool-head"><span class="oct" aria-hidden="true"></span><span>Engines</span></div>
+          <ul>
+            <li>Unity <span>C#, asset integration, tooling</span></li>
+            <li>Godot <span>GDScript, C#</span></li>
+          </ul>
+        </div>
+        <div class="tool reveal">
+          <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="tool-head"><span class="oct" aria-hidden="true"></span><span>Technical Art</span></div>
+          <ul>
+            <li>HLSL <span>custom shaders</span></li>
+            <li>ShaderGraph <span>node-based shading</span></li>
+            <li>Tool development <span>editor &amp; pipeline tools</span></li>
+          </ul>
+        </div>
+        <div class="tool reveal">
+          <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="tool-head"><span class="oct" aria-hidden="true"></span><span>3D / DCC</span></div>
+          <ul>
+            <li>Blender <span>modeling, UV unwrapping</span></li>
+            <li>Retopology <span>game-ready assets</span></li>
+          </ul>
+        </div>
+        <div class="tool reveal">
+          <span class="corners corners--thin" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <div class="tool-head"><span class="oct" aria-hidden="true"></span><span>Pipeline &amp; Software</span></div>
+          <ul>
+            <li>Git · Perforce · PlasticSCM <span>version control</span></li>
+            <li>Photoshop / GIMP <span>texturing, editing</span></li>
+            <li>Illustrator / Animate <span>vector &amp; motion</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 EXPERIENCE -->
+  <section class="section acc-c4" id="experience">
+    <div class="wrap">
+      <div class="sh">
+        <div class="sh-row">
+          <div class="sh-line sh-line--l"></div>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <h2>Experience</h2>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <div class="sh-line sh-line--r"></div>
+        </div>
+        <span class="chip"><span class="dot"></span>04 · Freelance since 2020</span>
+      </div>
+      <div class="rows reveal">
+        <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="row"><div class="row-when"><span class="dot"></span>10/2025 — present</div><div class="row-what"><p class="row-role">Unity Developer</p><p class="row-org">Galerie Perrotin — freelance</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>09/2024 — present</div><div class="row-what"><p class="row-role">Unity Developer (VR)</p><p class="row-org">LMC2, Memory Brain &amp; Cognition Lab — freelance</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>08/2023 &amp; 08/2024</div><div class="row-what"><p class="row-role">Unity Trainer</p><p class="row-org">LessonSharing — freelance</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>04/2021 — 07/2021</div><div class="row-what"><p class="row-role">UI Developer</p><p class="row-org">GreenBig — freelance</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>2020 — 2021</div><div class="row-what"><p class="row-role">Facilitator, Content Writer</p><p class="row-org">Tech Kids Academy — internship / freelance</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>Summer 2019 — 2026</div><div class="row-what"><p class="row-role">Camp Counselor</p><p class="row-org">Telligo — game-dev &amp; coding workshops for kids and teens</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 EDUCATION -->
+  <section class="section acc-c5" id="education">
+    <div class="wrap">
+      <div class="sh">
+        <div class="sh-row">
+          <div class="sh-line sh-line--l"></div>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <h2>Education</h2>
+          <div class="dots" data-dots="sec" aria-hidden="true"></div>
+          <div class="sh-line sh-line--r"></div>
+        </div>
+        <span class="chip"><span class="dot"></span>05 · RUBIKA · LISAA</span>
+      </div>
+      <div class="rows reveal">
+        <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="row"><div class="row-when"><span class="dot"></span>2022 — 2024</div><div class="row-what"><p class="row-role">Master's in Game Programming</p><p class="row-org">RUBIKA</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>2021 — 2022</div><div class="row-what"><p class="row-role">Bachelor's in Game Programming</p><p class="row-org">RUBIKA — gameplay programming (Unity), graphics programming</p></div></div>
+        <div class="row"><div class="row-when"><span class="dot"></span>2017 — 2020</div><div class="row-what"><p class="row-role">Bachelor's in Video Game Design 2D/3D</p><p class="row-org">LISAA Paris — 3D environment, lighting, shaders</p></div></div>
+      </div>
+      <div class="cv reveal">
+        <a class="btn" href="assets/CV_AnthimeROUX_Freelance_EN.pdf" target="_blank" rel="noopener"><span class="dot"></span>Download the full résumé</a>
+      </div>
+    </div>
+  </section>
+
+<!-- CONTACT -->
+<section class="section acc-c6" id="contact">
+  <div class="wrap contact-wrap">
+    <div class="contact reveal">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div class="contact-bar"><span><span class="dot"></span>Contact</span><span>Montrouge, France · open to Frankfurt, DE</span></div>
+      <div class="contact-in">
+        <h2>Let's build something.</h2>
+        <div class="dots" data-dots="sec" aria-hidden="true"></div>
+        <div class="contact-links">
+          <a class="acc-c2" href="#contact" data-mail data-u="xuor.emihtna" data-d="rf.liamtoh"><span class="dot led"></span>Send email</a>
+          <a class="acc-c3" href="#contact" data-tel data-t="46 29 46 37 6)0( 33+"><span class="dot led" style="animation-delay:.55s"></span><span data-tel-text>Phone</span></a>
+        </div>
+        <p class="mail-line">
+          <span data-mail-text>anthime.roux [at] hotmail [dot] fr</span>
+          <button class="copy" type="button" data-copy data-label-copy="Copy" data-label-copied="Copied">Copy</button>
+          <span class="sr-only" aria-live="polite" data-copy-status></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Anthime Roux</span>
+    <span>Built with Unity, C# &amp; a bit of HLSL</span>
+  </footer>
+</div>
+
+<!-- Media modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Project media">
+  <div class="modal-box" id="modalBox">
+    <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <button class="modal-close" id="modalClose">CLOSE ✕</button>
+    <div class="modal-media" id="modalMedia"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FLAG = ['#078D70', '#26CEAA', '#98E8C1', '#7BADE2', '#5049CC'];
+
+  /* ---------- Decorative generators ---------- */
+
+  // Hero tick strip, mirrored around the centre; every 5th tick takes a palette colour
+  document.querySelectorAll('[data-ticks]').forEach((el) => {
+    for (let i = 0; i < 41; i++) {
+      const d = Math.abs(i - 20);
+      const h = Math.max(4, Math.round(22 - d * 0.7 - ((d * 7) % 5)));
+      const s = document.createElement('span');
+      s.style.height = h + 'px';
+      if (d % 5 === 0) s.style.background = FLAG[(d / 5) % 5];
+      s.style.setProperty('--k', d);
+      el.appendChild(s);
+    }
+  });
+
+  // Hero dot matrix: 5 x 15 symmetric diamond; some lit dots twinkle
+  document.querySelectorAll('[data-dots="hero"]').forEach((el) => {
+    let n = 0;
+    for (let r = 0; r < 5; r++) {
+      for (let c = 0; c < 15; c++) {
+        const d = Math.abs(c - 7);
+        const rr = Math.abs(r - 2);
+        const lit = d + rr * 2 <= 7 && (d + r) % 2 === 0;
+        const s = document.createElement('span');
+        s.style.setProperty('--k', d + rr);
+        if (lit) {
+          s.style.background = FLAG[Math.min(Math.floor(d / 2), 4)];
+          if ((n++ % 2) === 0) {
+            s.classList.add('tw');
+            s.style.setProperty('--t', (2.2 + (n % 4) * 0.7).toFixed(1) + 's');
+            s.style.setProperty('--td', ((n * 0.37) % 3).toFixed(2) + 's');
+          }
+        }
+        el.appendChild(s);
+      }
+    }
+  });
+
+  // Small 3 x 7 clusters next to section titles, lit in the section accent
+  document.querySelectorAll('[data-dots="sec"]').forEach((el) => {
+    let k = 0;
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 7; c++) {
+        const d = Math.abs(c - 3);
+        const lit = (r === 1 && (c % 2 === 1 || d === 3)) || (r !== 1 && d === 1);
+        const s = document.createElement('span');
+        if (lit) { s.className = 'on'; s.style.setProperty('--k', k++); }
+        el.appendChild(s);
+      }
+    }
+  });
+
+  // Split the hero name into letters for a staggered entrance (kept readable for assistive tech)
+  document.querySelectorAll('[data-split]').forEach((el) => {
+    const text = el.textContent.trim();
+    el.setAttribute('aria-label', text);
+    el.textContent = '';
+    // Letters are grouped per word so the name only wraps between words
+    let k = 0;
+    text.split(/\s+/).forEach((word, w) => {
+      if (w > 0) el.appendChild(document.createTextNode(' '));
+      const wordEl = document.createElement('span');
+      wordEl.className = 'word';
+      wordEl.setAttribute('aria-hidden', 'true');
+      [...word].forEach((ch) => {
+        const s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = ch;
+        s.style.setProperty('--k', k++);
+        wordEl.appendChild(s);
+      });
+      el.appendChild(wordEl);
+    });
+  });
+
+  // Index the content of each panel so it flickers on line by line
+  document.querySelectorAll('.reveal, .module').forEach((panel) => {
+    let r = 0;
+    [...panel.children].forEach((child) => {
+      if (!child.classList.contains('corners')) child.style.setProperty('--r', Math.min(r++, 6));
+    });
+  });
+
+  // Every small dot slowly twinkles, each on its own rhythm (deterministic pseudo-random)
+  let seed = 11;
+  const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+  // Only the clusters beside titles and the hero module dots twinkle; content bullets stay still
+  document.querySelectorAll('.sh .dots span.on, .contact-in .dots span.on, .module .dot').forEach((d) => {
+    if (rnd() < 0.75) {
+      d.classList.add('tw');
+      d.style.setProperty('--t', (2.2 + rnd() * 3).toFixed(2) + 's');
+      d.style.setProperty('--td', (rnd() * 4).toFixed(2) + 's');
+    }
+  });
+
+  /* ---------- Text scramble (eyebrow) ---------- */
+  function scramble(el) {
+    const final = el.textContent;
+    const glyphs = '01#/<>[]+=*';
+    let frame = 0;
+    const total = 20;
+    el.setAttribute('aria-label', final);
+    const tick = () => {
+      const progress = frame / total;
+      let out = '';
+      for (let i = 0; i < final.length; i++) {
+        const ch = final[i];
+        if (ch === ' ' || ch === '·' || i / final.length < progress) out += ch;
+        else out += glyphs[(i + frame) % glyphs.length];
+      }
+      el.textContent = out;
+      if (frame++ < total) requestAnimationFrame(tick);
+      else el.textContent = final;
+    };
+    tick();
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  const revealTargets = document.querySelectorAll('.reveal, .sh, .hero');
+  const show = (el) => {
+    el.classList.add('is-in');
+    if (el.classList.contains('hero') && !reduceMotion) {
+      el.querySelectorAll('[data-scramble]').forEach((s) => setTimeout(() => scramble(s), 250));
+    }
+  };
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      let n = 0; // panels entering in the same batch are staggered
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        if (e.target.classList.contains('reveal')) e.target.style.setProperty('--i', Math.min(n++, 3));
+        show(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    revealTargets.forEach((el) => io.observe(el));
+  } else {
+    revealTargets.forEach(show);
+  }
+
+  const modal = document.getElementById('modal');
+  const modalBox = document.getElementById('modalBox');
+  const modalMedia = document.getElementById('modalMedia');
+  const modalClose = document.getElementById('modalClose');
+
+  /* ---------- Active nav link + scroll progress ---------- */
+  const navMap = { work: 'work', student: 'work', toolset: 'toolset', experience: 'experience', education: 'experience', contact: 'contact' };
+  const links = document.querySelectorAll('[data-nav]');
+  const sections = Object.keys(navMap).map((id) => document.getElementById(id)).filter(Boolean);
+  const progress = document.querySelector('.progress');
+  let ticking = false;
+  let lastY = window.scrollY;
+  const head = document.querySelector('.site-head');
+  const smallScreen = window.matchMedia('(max-width: 760px)');
+  const onScroll = () => {
+    ticking = false;
+    // Auto-hide the two-row header on phones
+    const yNow = window.scrollY;
+    if (smallScreen.matches && !modal.classList.contains('open')) {
+      if (yNow > 140 && yNow - lastY > 6) head.classList.add('is-hidden');
+      else if (lastY - yNow > 6 || yNow < 140) head.classList.remove('is-hidden');
+    } else {
+      head.classList.remove('is-hidden');
+    }
+    lastY = yNow;
+    const y = window.scrollY + window.innerHeight * 0.35;
+    let current = null;
+    sections.forEach((s) => { if (s.offsetTop <= y) current = navMap[s.id]; });
+    links.forEach((a) => a.classList.toggle('is-active', a.dataset.nav === current));
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- Contact details ---------- */
+  const rev = (str) => [...str].reverse().join('');
+  const mailLink = document.querySelector('[data-mail]');
+  let address = '';
+  if (mailLink) {
+    address = rev(mailLink.dataset.u) + '@' + rev(mailLink.dataset.d);
+    mailLink.href = 'mailto:' + address;
+    document.querySelectorAll('[data-mail-text]').forEach((el) => { el.textContent = address; });
+  }
+  const telLink = document.querySelector('[data-tel]');
+  if (telLink) {
+    const display = rev(telLink.dataset.t);
+    telLink.href = 'tel:' + display.replace(/\(0\)/, '').replace(/[^+\d]/g, '');
+    telLink.querySelector('[data-tel-text]').textContent = display;
+  }
+  const copyBtn = document.querySelector('[data-copy]');
+  const copyStatus = document.querySelector('[data-copy-status]');
+  if (copyBtn && address) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(address);
+      } catch (err) {
+        // Fallback for browsers without the async clipboard API
+        const ta = document.createElement('textarea');
+        ta.value = address; ta.setAttribute('readonly', ''); ta.style.position = 'absolute'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      }
+      copyBtn.textContent = copyBtn.dataset.labelCopied;
+      copyBtn.classList.add('is-done');
+      if (copyStatus) copyStatus.textContent = copyBtn.dataset.labelCopied;
+      setTimeout(() => {
+        copyBtn.textContent = copyBtn.dataset.labelCopy;
+        copyBtn.classList.remove('is-done');
+        if (copyStatus) copyStatus.textContent = '';
+      }, 1800);
+    });
+  } else if (copyBtn) {
+    copyBtn.hidden = true;
+  }
+
+  /* ---------- Media modal ---------- */
+  let lastTrigger = null;
+
+  document.querySelectorAll('.media[data-video], .media[data-img]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const video = btn.getAttribute('data-video');
+      const img = btn.getAttribute('data-img');
+      if (!video && !img) return;
+      lastTrigger = btn;
+      modalBox.classList.toggle('wide', btn.hasAttribute('data-wide'));
+      modalMedia.innerHTML = '';
+      if (video) {
+        const iframe = document.createElement('iframe');
+        iframe.src = video + '?autoplay=1&rel=0';
+        iframe.title = btn.getAttribute('aria-label') || 'Video';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        modalMedia.appendChild(iframe);
+      } else {
+        const image = document.createElement('img');
+        image.src = img;
+        image.alt = btn.querySelector('img')?.alt || '';
+        modalMedia.appendChild(image);
+      }
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setBackgroundInert(true);
+      modalClose.focus();
+    });
+  });
+
+  function closeModal() {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    modalBox.classList.remove('wide');
+    modalMedia.innerHTML = '';
+    document.body.style.overflow = '';
+    setBackgroundInert(false);
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  // Everything behind the dialog becomes unreachable while it is open
+  function setBackgroundInert(on) {
+    document.querySelectorAll('body > :not(#modal):not(script)').forEach((el) => {
+      if (on) { el.setAttribute('inert', ''); el.setAttribute('aria-hidden', 'true'); }
+      else { el.removeAttribute('inert'); el.removeAttribute('aria-hidden'); }
+    });
+  }
+
+  // Keep Tab cycling inside the dialog (fallback for browsers without inert)
+  modal.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const items = [...modal.querySelectorAll('button, iframe, a[href]')];
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+})();
+</script>
+</body>
+</html>
