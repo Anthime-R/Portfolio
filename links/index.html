@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthime Roux — Links</title>
+<meta name="description" content="Anthime Roux, freelance Unity developer — portfolio, résumé, socials and contact.">
+<meta name="theme-color" content="#0A0E13">
+<link rel="canonical" href="https://anthime-r.github.io/Portfolio/links/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anthime Roux — Links">
+<meta property="og:description" content="Freelance Unity developer: VR/XR, production tooling and technical art.">
+<meta property="og:url" content="https://anthime-r.github.io/Portfolio/links/">
+<meta property="og:image" content="https://anthime-r.github.io/Portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anthime-r.github.io/Portfolio/assets/og-image.png">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/saira-latin-200-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/barlow-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Analytics: GoatCounter (cookieless, no consent banner needed) -->
+<script data-goatcounter="https://anthime.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  @font-face{font-family:'Saira'; font-weight:200; font-display:swap; src:url('../fonts/saira-latin-200-normal.woff2') format('woff2');}
+  @font-face{font-family:'Saira'; font-weight:300; font-display:swap; src:url('../fonts/saira-latin-300-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow Condensed'; font-weight:500; font-display:swap; src:url('../fonts/barlow-condensed-latin-500-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow Condensed'; font-weight:600; font-display:swap; src:url('../fonts/barlow-condensed-latin-600-normal.woff2') format('woff2');}
+  @font-face{font-family:'Barlow'; font-weight:400; font-display:swap; src:url('../fonts/barlow-latin-400-normal.woff2') format('woff2');}
+
+  :root{
+    --bg:#0A0E13; --panel:#10161D; --line:#1E2731; --line-2:#2B3644;
+    --ink:#E9EDEE; --ink-hi:#F2F6F7; --soft:#C5D3D6; --muted:#8FA0A8; --muted-2:#7F8E9C; --grey-ui:#5B6A78;
+    --c1:#078D70; --c2:#26CEAA; --c3:#98E8C1; --c4:#FFFFFF; --c5:#7BADE2; --c6:#5049CC;
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --acc:var(--c2);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; min-height:100vh; background:var(--bg); color:var(--ink); font-family:'Barlow', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid var(--c3); outline-offset:3px;}
+  .page{max-width:520px; margin:0 auto; padding:40px 20px 36px;}
+
+  /* Corner brackets */
+  .corners{position:absolute; inset:-1px; pointer-events:none; --cs:14px; --cw:1px; --cc:var(--acc);}
+  .corners i{position:absolute; width:var(--cs); height:var(--cs); border:0 solid var(--cc); transition:width .35s var(--ease), height .35s var(--ease);}
+  .corners i:nth-child(1){left:0; top:0; border-left-width:var(--cw); border-top-width:var(--cw);}
+  .corners i:nth-child(2){right:0; top:0; border-right-width:var(--cw); border-top-width:var(--cw);}
+  .corners i:nth-child(3){left:0; bottom:0; border-left-width:var(--cw); border-bottom-width:var(--cw);}
+  .corners i:nth-child(4){right:0; bottom:0; border-right-width:var(--cw); border-bottom-width:var(--cw);}
+
+  /* Header block */
+  .id{position:relative; text-align:center; padding:36px 16px 30px;}
+  .id .corners{--cs:22px; --cc:var(--muted);}
+  .ticks{display:flex; justify-content:center; align-items:flex-end; gap:3px; height:18px; margin-bottom:22px;}
+  .ticks span{width:2px; background:var(--line-2); transform-origin:bottom;}
+  .eyebrow{font-family:'Barlow Condensed'; font-weight:600; font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);}
+  h1{margin:14px 0 0; margin-right:-.12em; font-family:'Saira'; font-weight:200; font-size:clamp(36px, 11vw, 52px); line-height:1.02; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-hi);}
+  .tagline{margin:14px auto 0; max-width:34ch; font-size:15.5px; color:var(--soft);}
+  .tagline em{font-style:normal; color:var(--c3);}
+  .hero-dots{margin:22px auto 0; display:grid; grid-template-columns:repeat(11,4px); gap:4px; justify-content:center;}
+  .hero-dots span{width:4px; height:4px; border-radius:50%; background:#1A222C;}
+  .status{margin-top:18px; display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed'; font-weight:600; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--c3);}
+  .dot{display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--acc); flex-shrink:0;}
+
+  /* Link panels */
+  .links{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .link{position:relative; display:flex; align-items:center; gap:14px; padding:15px 18px; background:rgba(var(--acc-rgb),.05); border:1px solid var(--line); transition:background-color .25s ease, border-color .25s ease;}
+  .link:hover{background:rgba(var(--acc-rgb),.12); border-color:var(--line-2);}
+  .link:hover .corners i{width:24px; height:24px;}
+  .link .idx{font-family:'Barlow Condensed'; font-weight:600; font-size:13px; letter-spacing:.18em; color:var(--muted-2); width:22px;}
+  .link .txt{flex:1 1 auto; min-width:0;}
+  .link .name{display:block; font-family:'Barlow Condensed'; font-weight:600; font-size:20px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-hi);}
+  .link .sub{display:block; margin-top:1px; font-size:13.5px; color:var(--muted);}
+  .link .arrow{font-family:'Barlow Condensed'; font-size:18px; color:var(--acc); transition:transform .3s var(--ease);}
+  .link:hover .arrow{transform:translateX(4px);}
+  .link--main{background:rgba(var(--acc-rgb),.13); border-left:3px solid var(--acc);}
+  .a1{--acc:var(--c1); --acc-rgb:7,141,112;}
+  .a2{--acc:var(--c2); --acc-rgb:38,206,170;}
+  .a3{--acc:var(--c3); --acc-rgb:152,232,193;}
+  .a4{--acc:var(--c4); --acc-rgb:255,255,255;}
+  .a5{--acc:var(--c5); --acc-rgb:123,173,226;}
+  .a6{--acc:var(--c6); --acc-rgb:80,73,204;}
+  .a6 .arrow{color:#9C98EA;}
+
+  footer{margin-top:30px; display:flex; justify-content:space-between; gap:10px; font-family:'Barlow Condensed'; font-weight:600; font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-2);}
+  footer a:hover{color:var(--c3);}
+
+  /* Animations: corners unfold from the centre, blink, then content flickers on */
+  @keyframes unfold{0%{inset:50%; opacity:1;} 100%{inset:-1px; opacity:1;}}
+  @keyframes blink{0%{opacity:.15;} 33%{opacity:1;} 66%{opacity:.15;} 100%{opacity:1;}}
+  @keyframes flickerIn{0%{opacity:0;} 12%{opacity:.9;} 22%{opacity:.1;} 34%{opacity:1;} 46%{opacity:.35;} 60%,100%{opacity:1;}}
+  @keyframes panelIn{from{background-color:transparent; border-color:transparent;}}
+  @keyframes twinkle{0%,100%{opacity:1; transform:scale(1);} 40%,55%{opacity:.08; transform:scale(.55);} 70%{opacity:1; transform:scale(1.25);} 82%{transform:scale(1);}}
+  @keyframes led{0%,55%{opacity:1;} 56%,100%{opacity:.12;}}
+  @keyframes grow{from{transform:scaleY(0);}}
+  .tw{animation:twinkle var(--t, 3s) ease-in-out var(--td, 0s) infinite;}
+  .led{animation:led 1.1s linear infinite;}
+  .js .ticks span{animation:grow .45s var(--ease) calc(var(--k, 0) * 18ms) both;}
+  .js .panel > .corners{animation:unfold .38s var(--ease) var(--d, 0s) both, blink .28s steps(1,end) calc(var(--d, 0s) + .38s) 1;}
+  .js .panel > :not(.corners){animation:flickerIn .32s linear calc(var(--d, 0s) + .5s) both;}
+  .js .panel{animation:panelIn .3s ease calc(var(--d, 0s) + .45s) backwards;}
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="id panel">
+    <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="ticks" data-ticks aria-hidden="true"></div>
+    <div class="eyebrow">Freelance · Unity · C# · Technical Art</div>
+    <h1>Anthime Roux</h1>
+    <p class="tagline">Gameplay, tools, technical art — I end up <em>going deep on all three.</em></p>
+    <div class="hero-dots" data-dots aria-hidden="true"></div>
+    <div class="status"><span class="dot led" style="--acc:var(--c3)"></span>Open to freelance missions</div>
+  </header>
+
+  <!-- Links: edit the href values below. data-goatcounter-click names each link in the analytics -->
+  <ul class="links">
+    <li><a class="link link--main panel a2" href="../" data-goatcounter-click="links-portfolio">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">01</span><span class="txt"><span class="name">Portfolio</span><span class="sub">Projects, toolset &amp; experience</span></span><span class="arrow" aria-hidden="true">→</span>
+    </a></li>
+    <li><a class="link panel a3" href="../assets/CV_AnthimeROUX_Freelance_EN.pdf" target="_blank" rel="noopener" data-goatcounter-click="links-cv">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">02</span><span class="txt"><span class="name">Résumé</span><span class="sub">PDF · English</span></span><span class="arrow" aria-hidden="true">↓</span>
+    </a></li>
+    <li><a class="link panel a5" href="https://www.linkedin.com/in/anthime-roux-230466175/" target="_blank" rel="noopener" data-goatcounter-click="links-linkedin">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">03</span><span class="txt"><span class="name">LinkedIn</span><span class="sub">Professional profile</span></span><span class="arrow" aria-hidden="true">↗</span>
+    </a></li>
+    <!-- itch.io: put the link back in once the page is ready
+    <li><a class="link panel a1" href="https://squirrel-eating-cardboard.itch.io/" target="_blank" rel="noopener" data-goatcounter-click="links-itch">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">04</span><span class="txt"><span class="name">itch.io</span><span class="sub">Playable games</span></span><span class="arrow" aria-hidden="true">↗</span>
+    </a></li>
+    -->
+    <li><a class="link panel a1" href="https://x.com/xanthime" target="_blank" rel="noopener" data-goatcounter-click="links-x">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">04</span><span class="txt"><span class="name">X</span><span class="sub">Devlog &amp; updates</span></span><span class="arrow" aria-hidden="true">↗</span>
+    </a></li>
+    <li><a class="link panel a6" href="../#contact" data-mail data-u="xuor.emihtna" data-d="rf.liamtoh" data-goatcounter-click="links-email">
+      <span class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="idx">05</span><span class="txt"><span class="name">Email</span><span class="sub" data-mail-text>Contact me</span></span><span class="arrow" aria-hidden="true">↗</span>
+    </a></li>
+  </ul>
+
+  <footer><span>© 2026 Anthime Roux</span><a href="../fr/">Version FR</a></footer>
+</main>
+
+<script>
+(() => {
+  const FLAG = ['#078D70', '#26CEAA', '#98E8C1', '#7BADE2', '#5049CC'];
+
+  // Tick strip mirrored around the centre
+  const ticks = document.querySelector('[data-ticks]');
+  for (let i = 0; i < 31; i++) {
+    const d = Math.abs(i - 15);
+    const s = document.createElement('span');
+    s.style.height = Math.max(4, Math.round(18 - d * 0.7 - ((d * 7) % 4))) + 'px';
+    if (d % 5 === 0) s.style.background = FLAG[(d / 5) % 5];
+    s.style.setProperty('--k', d);
+    ticks.appendChild(s);
+  }
+
+  // Symmetric dot cluster, some lit dots twinkle
+  const dots = document.querySelector('[data-dots]');
+  let n = 0;
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 11; c++) {
+      const d = Math.abs(c - 5);
+      const lit = d + Math.abs(r - 1) * 2 <= 5 && (d + r) % 2 === 1;
+      const s = document.createElement('span');
+      if (lit) {
+        s.style.background = FLAG[Math.min(Math.floor(d / 1.5), 4)];
+        if ((n++ % 2) === 0) {
+          s.classList.add('tw');
+          s.style.setProperty('--t', (2.2 + (n % 4) * 0.7).toFixed(1) + 's');
+          s.style.setProperty('--td', ((n * 0.37) % 3).toFixed(2) + 's');
+        }
+      }
+      dots.appendChild(s);
+    }
+  }
+
+  // Staggered entrance: header first, then each link
+  document.querySelectorAll('.panel').forEach((p, i) => p.style.setProperty('--d', (i === 0 ? 0 : 0.25 + i * 0.08).toFixed(2) + 's'));
+
+  // Email assembled at runtime (kept away from simple scrapers)
+  const rev = (str) => [...str].reverse().join('');
+  const mail = document.querySelector('[data-mail]');
+  if (mail) {
+    const address = rev(mail.dataset.u) + '@' + rev(mail.dataset.d);
+    mail.href = 'mailto:' + address;
+    mail.querySelector('[data-mail-text]').textContent = address;
+  }
+})();
+</script>
+</body>
+</html>
